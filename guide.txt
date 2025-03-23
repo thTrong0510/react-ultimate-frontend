@@ -1,0 +1,2532 @@
+====Chapter 1: Setup Environment====
+Cài đặt & chuẩn bị  môi trường thực hiện dự án
+
+##I - Cài đặt NodeJS##
+Tài liệu: https://nodejs.org/en
+1.Nodejs là gì ?
+Nodejs không phải là thư viện (library), không phải framework của javascript.
+
+Nodejs là môi trường để bạn thực thi code javascript, tại browser và server.
+
+Bạn học React (viết bằng Javascript), nên bạn cần Nodejs để có thể chạy được nó (code javascript)
+
+Điều này tương tự với:
+
+Bạn học cách sử dụng Microsoft Excel  (react)
+Bạn cần cài hệ điều hành Windows để có thể học nó (nodejs)
+
+2. Cài đặt Nodejs
+Sai lầm của beginners, là không quan tới tới version của phần mềm. Nên nhớ, công nghệ nó thay đổi theo thời gian, vì vậy, để hạn chế tối đa lỗi tối đa, bạn nên dùng version phần mềm như khóa học hướng dẫn.
+
+Điều này tương tự với:
+Bạn đang chơi 1 con game rất ngon trên Windows 7, bạn vác lên Windows 10 để chạy, có điều gì để đảm bảo rằng “sẽ không có lỗi xảy ra” ?
+
+Trong khóa học này, mình sử dụng version Node.js là 20.14.0.
+
+Vì vậy, để hạn chế tối đa lỗi có thể xảy ra, bạn vui lòng cài đặt chính xác version nodejs ở trên
+
+Khi code giống nhau, môi trường thực thi code giống nhau (version nodejs), thì rất hiếm khi lỗi xảy ra.
+
+
+Link tải nodejs v20.14.0:
+https://nodejs.org/download/release/v20.14.0/
+
+Sau khi cài đặt xong, kiểm tra bằng cách gõ câu lệnh:
+
+node -v
+
+3. Trường hợp dùng nhiều version Nodejs
+//áp dụng cho windows
+https://github.com/coreybutler/nvm-windows
+
+Video hướng dẫn cài nvm cho window, xem tại đây
+
+
+//áp dụng cho macos
+Video hướng dẫn cài nvm cho mac, xem tại đây
+
+https://dev.to/ajeetraina/how-to-install-and-configure-nvm-on-mac-os-5fgi
+
+##II - Cấu hình Visual Studio Code##
+1. Format Code
+Setup Format on Save
+Mục đích: Mỗi lần nhấn Ctrl + S , code sẽ được auto format trông cho đẹp/dễ nhìn
+
+
+2. Cài đặt Extensions
+
+Lưu ý: off các extension như eslint, prettier … để tránh xung đột
+Fact: đi làm, người ta cấu hình eslint, prettier..thông qua code, vì mỗi 1 dự án (1 khách hàng 1 yêu cầu), cài global qua extension thì cái nào cũng giống cái nào
+
+Đồng thời, với rule trên sẽ đảm bảo mọi thành viên trong team sẽ có cấu hình giống nhau
+
+
+Các extensions cài đặt thêm:
+- Code Spell Checker : hỗ trợ check chính tả khi đặt tên tiếng anh
+- Auto Complete Tag : hỗ trợ code nhanh HTML
+
+====Chapter 2: Lịch Sử Phát Triển của React (tính tới React 19)====
+Làm quen với quá trình phát triển của thư viện React
+
+##I - React là gì ? Tại sao lại học React ?
+
+1. Khái niệm “React” ?
+https://github.com/facebook/react
+
+Châm ngôn của React : Learn once, write anywhere.
+
+Có nghĩa là: bạn tốn thời gian học “tư duy của React” đúng 1 lần, bạn có thể áp dụng nó ở nhiều nơi.
+
+Ví dụ:
+React JS (hay gọi tắt là React) dùng để code website
+
+React Native dùng để code hybrid mobile app (android/ios)
+
+Electron : desktop app
+
+2. Lý do bạn học React
+
+React được Facebook chống lưng (sau này là Meta), vì vậy, câu chuyện bảo React sẽ die là rất khó (vì ngay cả Facebook/Instagram…) có rất nhiều tính năng được code nên bởi React
+
+React được sử dụng rộng rãi (phổ biến), tài liệu, source code đa dạng, phong phú
+
+=> cái gì phổ biến thì chúng ta học thôi :v
+
+##II - Phân biệt React, Angular, Vue##
+
+Để xây dựng frontend website hiện đại, chúng ta có 3 đồng chí nổi tiếng nhất:
+1.Angular
+https://angular.dev/
+
+Được chống lưng bởi Google
+Phát triển từ 2010 (version angluarJS), sau này là angular 2 (2016)
+Là framework
+2. Vue
+https://vuejs.org/
+Được chống lưng bởi Evan You và các công ty tài trợ (đa phần là Trung Quốc)
+Phát triển từ 2014
+Là framework
+
+3. React
+Được chống lưng bởi Meta (facebook)
+Phát triển từ 2013
+Là library
+
+4. So sánh React, Angular, Vue
+https://npmtrends.com/@angular/core-vs-react-vs-vue
+
+5. Nên chọn công nghệ nào ?
+Vue là con lai giữa React và Angular
+
+##III - Lịch sử phát triển của React - Chúng ta đang ở đâu ?##
+
+1.Giai đoạn phát triển
+Được chia làm 2 giai đoạn chính:
+
+Giai đoạn 1: từ khi ra đời (2013) tới tháng 4/2022
+Trước 2013 trở về trước, chúng ta có cơ chế SSR (server side rendering) và Jquery chính là vua frontend. Jquery + Wordpress là công thức làm nhanh một website.
+
+React/Angular/Vue ra đời, bổ sung cơ chế CSR (client side rendering) và khái niệm SPA (single page application)
+
+React là thư viện. Có nghĩa là, nó đơn giản nhất có thể. Bạn muốn hơn, cần phải tự làm. Ví dụ như router, caching data..
+
+
+Giai đoạn 2: từ tháng 4/2022 tới nay
+
+React là framework (ví dụ như Next.js).
+
+Website quay lại với SSR (server side rendering) với hình thức SSG (Static side rendering) - React chạy trên server (chứ không phải browser)
+
+2.Chúng ta đứng ở đâu
+
+Với khóa học này, mình sử dụng React như 1 thư viện UI (user interface) để làm giao diện thuần túy. Sử dụng React với cơ chế CSR (client side rendering)
+
+Mình cố gắng giữ mọi thứ đơn giản nhất có thể, như tuy duy ban đầu của React.
+
+##IV - Có bao nhiêu cách để code React##
+
+Có 2 cách chính để code React hiện nay:
+
+Cách 1 (cách khóa học sử dụng), là sử dụng React với cơ chế CSR (client side rendering)
+
+Các ứng dụng phổ biến: 
+Các website có nội dung thay đổi liên tục (real-time), ví dụ bạn chat Messenger trên Facebook
+Bảng giá vndirect
+Sàn binance
+
+Ưu điểm:
+Code thuần túy react (đúng ý tưởng ban đầu) - đơn giản nhất có thể
+React là thư viện UI
+
+Nhược điểm:
+SEO không tốt (ví dụ cho Google Search Engine)
+Trải nghiệm của user thấp (trong trường hợp mạng internet chậm)
+
+
+Cách 2: sử dụng React với cơ chế SSR (Server side rendering)
+
+Các ứng dụng phổ biến:
+Các website cần SEO, đọc tin tức, ví dụ: https://react.dev/
+Các website có độ chịu tải cao & quan trọng hóa trải nghiệm của người dùng (UX), ví dụ: https://tiki.vn/
+
+Ưu điểm:
+React là framework làm UI
+Hỗ trợ SEO và tăng trải nghiệm của người dùng (UX)
+
+Nhược điểm:
+Code phức tạp, vì bạn đang dùng framework
+
+##V - Nên code React với Javascript hay Typescript##
+
+Typescript = Javascript + khai báo type
+
+Với Angular, bạn “bắt buộc” phải sử dụng Typescript.
+
+Với Vue và React, bạn đều có thể dùng Javascript/Typescript, tùy sở thích của bạn.
+
+Ưu điểm khi dùng Typescript:
+Hạn chế bugs và lỗi cú pháp (vì check type)
+
+Khối lượng code base càng lớn (số lượng dòng code), càng dễ sử dụng
+
+Nhược điểm: code dài dòng hơn javascript, vì cần khai báo type
+
+
+Ưu điểm khi dùng Javascript:
+Code nhanh nhất có thể (gần giống như code cho chạy được)
+
+Nhược điểm: do quá thoải mái (không bị ràng buộc về cú pháp), rất khó để debug/ sửa đổi code khi khối lượng code base lớn
+
+##VI - Tìm tài liệu về React ở đâu
+
+Trang tài liệu mới nhất của React:
+https://react.dev/
+
+Trang tài liệu cũ của React (không dùng nữa), chỉ nên sử dụng với React < 18
+https://legacy.reactjs.org/
+
+
+Github của react: 
+https://github.com/facebook/react
+
+====chapter 3: Hello World với React
+Viết chương trình hello world với ứng dụng Reac
+
+##I - Setup dự án thực hành##
+
+1.Chuẩn bị
+Đảm bảo rằng bạn đã cài đặt Git và Node.js (version 20.14.0)
+
+2.Cài đặt dự án thực hành
+Bước 1: Download source code https://drive.google.com/file/d/1iUzmvZeV46AS-PLtcpaSBX6QFQhS5j8z/view
+
+Bước 2: cài đặt thư viện cần thiết
+npm i: để cài đặt các thư viện được cấu hình trong node_modules 
+
+Lưu ý về warning/error tại terminal
+
+Bước 3: chạy dự án
+npm run dev
+
+Truy cập: http://localhost:3000/
+
+3. Có bao nhiêu cách để setup 1 dự án với React
+Create-react-app: https://create-react-app.dev/
+
+Vite: https://vitejs.dev/guide/
+
+Sử dụng framework: Nextjs, Gasby, Remix
+
+##II - Hello World với React##
+
+1.Viết chương trình Hello World
+
+khi dùng thư viện react thì ko cần cài extension live server vì thư viện này có cơ chế dịch code hot reloading -> giúp tự cập nhật trình duyệt một cách tự động khi bấm save code 
+
+Chạy dự án với câu lệnh : npm run dev
+
+Truy cập: http://localhost:3000/
+
+Bonus: cách set default app của windows 
+
+2. Cách backup source code với github
+Bước 1: tạo git repository
+
+git remote set-url origin new.git.url/here
+
+Bước 2: sử dụng lần lượt các câu lệnh sau:
+git add .
+git commit -m "your message"
+git set remote …
+git push 
+
+Warning của git: https://github.com/orgs/community/discussions/66838
+
+Giải thích: https://shzhangji.com/blog/2022/08/31/configure-git-line-endings-across-oses/
+
+
+##III - Cấu trúc dự án thực hành##
+
+React được sử dụng ở đây như là 1 library => cấu trúc đơn giản nhất có thể
+
+1.Giải thích ý nghĩa của các file cung cấp
+
+Thư mục: 
+node_modules: lưu trữ thư viện cài đặt
+
+public : lưu image/css/js (những cái muốn public ra ngoài internet, ai ai cũng có thể truy cập được)
+
+src : nơi dev viết code (99%)
+	index.css: nơi code css
+	App.css: code css
+	main.jsx: code react
+	App.jsx: code react
+	asset: lưu css, image, lưu trong này tốc độ truy cập sẽ nhanh hơn thư mục public và đảm bảo private -> tăng an toàn + hiệu năng
+
+Các files:
+.eslintrc.cjs : cấu hình eslint (giúp check code javascript)
+
+.gitignore : quy định những files nào "không đẩy lên git"
+
+index.html : file mà browser sẽ chạy (với mô hình CSR). hiểu đơn gian, code react sẽ được dịch và "nhét" vào đấy trong file này có tag <div>root</div> -> all code react khi code sẽ được dịch sang html/css/js sau đó đưa vào đây để render lên browser
+
+package.json : quy định thông tin về project, cũng như nhưng thư viện được cài trong dự án trong dự án có .eslintrc.cjs là nhờ đã có cấu hình cài eslintrc trong package.json này 
+	<dependecies/> tên thư viện cài đặt
+	<devDependencies/> thư viện dành cho dev ko có trong chế độ production
+ 	<script/> cách chạy project: việc viết câu lệnh nmp run dev thực tế là nó chạy vào trong script -> "dev":"vite" 
+
+package-lock.json : quy định chi tiết thông tin cài đặt thư viện trong package.json
+
+README.md : cung cấp thông tin về project
+
+vite.config.js : cấu hình dự án React với Vite - trình dịch code, chạy dự án 
+
+2. Cấu trúc dự án thực tế trông như nào (bonus)
+Nếu bạn không sử dụng framework, việc tổ chức cấu trúc (structure) như nào, phụ thuộc vào quan điểm và trình độ của mỗi người
+https://dev.to/itswillt/folder-structures-in-react-projects-3dp8
+
+##IV - Đặt tên file JS/JSX/TS/TSX cho React##
+
+js: javascript
+Dùng để định nghĩa file code javascript, hoặc code react (vì react là javascript mà)
+
+jsx : javascript + JSX
+Chỉ dùng để định nghĩa react (javascript)
+
+ts: typescript
+Chỉ dùng để định nghĩa file code typescript
+
+tsx: typescript + tsx
+Chỉ dùng để định nghĩa react (typescript)
+
+
+Bonus: Tại sao có trường hợp khi bạn đặt tên là .js hay .jsx cho React, code đều chạy được ?
+Ví dụ: https://codesandbox.io/p/sandbox/create-react-app-iuync?
+
+chủ yếu là phụ thuộc vào trình dịch code: đối với dự án này dùng Vite -> bắt buộc dùng .jsx
+nếu .js ko lỗi thì người ta có thể dùng 1 <dependecies>"react-script":...</> nó sử dụng trình duyệt code babel 
+
+##V - Cơ chế hoạt động của React với Browser (Extra)#
+
+1.Với chế độ dev (development)
+Dev coding (ngôn ngữ code)
+Compile và lưu trong memory
+
+Sử dụng các câu lệnh: 
+npm run dev
+
+vite(compiler) sẽ dịch src ra (html,css,js) lưu vào memory -> khi vào browser truy cập vào localhost:3000 -> thì máy tính sẽ trả ra (html,css,js) đã lưu đó 
+-> nếu dự án lớn -> tốc độ sẽ bị chậm đi 
+
+-> để khắc pục thì sẽ ko lưu dự án vào memory nữa mà sẽ build nó lên -> chế độ production
+
+2. Với chế độ prod (production)
+Compile
+Lưu tại cache của browser
+
+Sử dụng các câu lệnh:
+npm run build
+-> tự tạo ra thư mục dist và lưu thông tin dịch code sang (html,css,js, index.html, ...) vào trog này chứ ko lưu vào memory nữa -> h chỉ việc chạy file index.html dùng lệnh 
+npm run preview
+
+-> tốc độ nhanh hơn vì sẽ chạy sẵn file đã dịch chứ ko cần thông qa compiler nữa
+
+Một ứng dụg pát triển với react cuối cùng chỉ cho ra 1 file  -> index.html (+ import js ~ react, css) -> đây cũng là 1 trog nhữg lý do gọi là Single Page Application (SPA) bởi vì ứng dụng chỉ có 1 file
+
+##VI - Tại sao gọi React là Client Side Rendering (Bonus)##
+
+SSR: server side rendering. Mọi công việc render để tạo ra dữ liệu, được xử lý tại phía server mỗi lần điều hướng trang cần truy cập vào server lấy dữ liệu -> render ra html (load lại trang)
+
+CSR: client side rendering : công việc render và tạo ra dữ liệu xảy ra tại phía client (khi mới truy cập vào page thì all dữ liệu cần thiết đã được lưu vào pía client -> khi điều hướng trang sẽ lấy data từ pía client luôn -> (ko bị load lại trag)
+
+Giải thích:
+All thing (code react...) đều pải được complie sang html,css,js -> thì mới hiển thị lên browser được
+Sau khi đã build ứng dụng, miêu tả cơ chế SSR và CSR
+
+====Chapter 4: Tư duy thiết kế UI với Component====
+Sử dụng React dưới dạng Component để tạo nhanh UI ứng dụng
+
+##I - Khái niệm về Component
+
+1. Tư duy của framework/library
+Với tư duy của Frontend, chúng ta sẽ chia giao diện thành các component
+
+Mục đích: tăng tính “tái sử dụng” (reuse code)
+
+Component = HTML + CSS + Javascript
+
+Ví dụ: https://4x.ant.design/components/popover/
+
+
+2. Giới thiệu về arrow function (bổ trợ)
+
+Tài liệu arrow function, xem https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+Ví dụ về arrow function, xem https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#examples
+
+Phong cách của javascript hiện đại (thậm chí là java), là sử dụng “functional programing).
+
+Why ? máy tính (chỉ hiểu/và chạy nhanh) khi code của chúng ta đơn giản nhất có thể.
+
+Tất cả code của chúng ta, đều là function, tuy nhiên là “arrow function” 
+
+//todo : convert App.jsx thành arrow function
+
+
+##II - Component##
+
+Component là 1 khối code
+Component = HTML + CSS + Javascript
+Component giúp tái sử dụng code
+
+1.Cách định nghĩa 1 component với React
+
+Tài liệu: https://react.dev/learn/your-first-component#defining-a-component
+chung quy lại thì component cũng chỉ là function javascript 
+
+Bước 1: Định nghĩa một arrow function
+const MyComponent = ( )  => {   }
+
+Lưu ý: tên component bắt buộc viết hoa chữ cái đầu tiên
+
+Viết đúng: MyComponent
+
+Viết sai: myComponent
+
+Bước 2: Để biến Javascript function trở thành component, chúng ta cần return HTML
+const MyComponent = ( )  => {  	
+return ( // todo )
+ }
+
+Bước 3: Sử dụng Component như là 1 thẻ tag của HTML
+
+##III - Import/Export Component##
+
+Tài liệu: https://react.dev/learn/importing-and-exporting-components
+
+Mục đích: Reuse (tái sử dụng) code
+
+Export: xuất ra để nơi khác dùng
+khi export -> nó sẽ trông chờ export ra 1 {} Object nếu chỉ ghi export MyComponent -> sẽ bị lỗi -> export {MyComponent} như này sẽ ko lỗi nhưng mà khi dùng dấu {} để export ta cần pải thay đổi cách để import cũng pải thêm {} ở tên 
+
+-> khi click vào tên {MyComponent} -> ở import mà nó nhảy tới file code đó thì đã import được
+
+export default MyComponent; 
+import component from './components/learn/MyComponent'
+-> khi dùng export với default -> chỉ được export ra 1 Object và khi import có thể import bất kì tên nào chỉ cần đúng đường dẫn (sau from) -> vì nó chỉ xuất 1 object nên sẽ ko pân biệt tên chỗ đó dù tên gì nó cũn chỉ xuất ra 1 objetc
+
+export { FirstComponent, SecondComponent };
+import { SecondComponent, FirstComponent } from './components/learn/SecondComponent'
+-> dùng {} khi export và import nhiều object cùng lúc và pải import đúng tên export nếu ko sẽ bị lỗi 
+
+Import: gọi tới component
+
+Lưu ý, mặc định là export default
+https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
+
+##III - JSX##
+
+Tài liệu: https://react.dev/learn/writing-markup-with-jsx
+công cụ đứng sau react là JSX cho phép bạn code HTML trong file Javascript 
+Lưu ý: JXS ở đây là 1 công ngệ giúp dịch code React(Html + js) chứ ko pải đặt tên file .jsx (ám chỉ code react với javascript)
+
+một số quy tắc code với JSX:
+- Single Root: JSX chỉ có 1 cha duy nhất. tức là khi return chỉ được return duy nhấn 1 tag (tag này được gọi là tag cha có thể bọc nhiều tags khác) ko được return về nhiều tags cùng cấp
+nhược điểm: nếu cần return ra nhiều tags -> cần thêm 1 tag bọc bên ngoài -> khi render ra giao diện sẽ bị thừa tag này -> những lỗi liên qan đến code css dễ bị vỡ layout
+
+-> dùng 1 công cụ mới vẫn tuân theo quy tắc JSX chỉ trả ra 1 pần tử duy nhất mà ko pá vỡ cấu trúc layout -> Fragment
+
+2. Fragment
+Fragment (mảnh vỡ) giúp bạn viết code ngắn đi, và không render “thừa html”
+https://react.dev/reference/react/Fragment
+Để sử dụng: xưa sẽ dùng thẻ <React.Fragment/> bây h chỉ cần định nghĩa 1 tag rỗng và viết html trong đó <>...</> -> mỗi lần react qét code thấy kí hiệu này nó sẽ ko render ra html 
+
+
+3. Sử dụng CSS
+Lưu ý: className
+Không dùng từ “class” với JSX, vì class là  keyword “lớp” của javascript
+Lưu ý về inline style (viết theo quy tắc của object)
+
+##IV - Cách sử dụng biến số với JSX##
+
+Tài liệu: https://react.dev/learn/javascript-in-jsx-with-curly-braces
+
+Về các loại “data types” của Javascript, tham khảo tại đây
+
+Bao gồm 2 loại chính:
+
+Dữ liệu nguyên thủy: string, number, boolean, undefined, null
+	khi render những giá trị có kiểu dữ liệu trên ra HTML thì chỉ có String và number nó hiển thị còn lại sẽ ko hiển thị gì vì HTML chỉ hiển thị được những loại text còn những kiểu dữ liệu còn lại chỉ Javascript hiểu
+
+Dữ liệu object (array): tham chiếu
+	khi render 1 array ra HTML nó sẽ chỉ hiển thị liền kế những giá trị bên trong array đó (String, number)
+	đối với Object thì ko thể render ra được mún in ra nguyên biến Object thì cần convert nó qa = JSON.stringify() -> để chuyển nó thành chuỗi String 
+
+Nguyên tắc : sử dụng cặp dấu ngoặc nhọn { } để viết code javascript bên trong html
+ví dụ code css inline <div style={{borderRadius: "10px"}}> với {} bọc ngoài là tượng trưng cho việc sử dụng javascript bên trong html {} thứ 2 tượng trưng cho Object -> khi dùng Object thì ko thể dùng border-radius thì sẽ bị báo lỗi -> pải dùng chuẩn lạc đà 
+
+-> chỉ cần {} trong html ta có thể viết bất kì code js nào bên trong 
+
+Về hàm JSON.stringify()
+
+##V - Nested Component - Quan hệ Cha-Con##
+
+Cài đặt react devtool extension
+https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+khi cài đặt add vào browser -> mỗi khi f12 mìh sẽ có thêm 2 tools trên activity bar: components, profiler
+components: hiển thị all component trong dự án (có hiển thị qan hệ cha con - cha bọc ngoài con)
+
+ở đây mìh thấy 1 cha App bọc lấy những component còn lại: App này chính là function App() bên trong App.jsx trong này nó gọi đến những component khác 
+trong index.html có 1 <div root> thì khi chạy dự án react nó sẽ dịch code bỏ vào đây - file main.jsx ứng dụng khi chạy đầu tiên sẽ vào file này trong này nó dùng document.getElementById('root') để lấy ra cái root và nó render ra cái component App
+
+profiler: giúp đo hiệu năng
+
+
+Quan hệ cha-con (parent-child)
+
+//todo: giải thích ý nghĩa của file main.tsx
+
+##VI - Bài tập Components##
+
+Xóa hết layout đang có (bao gồm cả css)
+
+Cách tư duy: vẽ base component (cứ code theo cách bạn hiểu). 
+Code tất cả mọi thứ trong 1 component, nếu chia được layout thì càng tốt (chia tách parent-child)
+
+Các kiến thức áp dụng:
+Tạo component : arrow function và JSX
+Import/Export component
+CSS cho component
+Nested component
+
+Bonus thêm cách sử dụng hình ảnh (logo react)
+
+##VII - Props##
+
+Props = Property (tài sản kế thừa), sử dụng trong mối quan hệ cha con, cũng là 1 Object 
+Component cha, truyền “props” sang component con
+=> props chính là cách chúng ta truyền “data” giữa các component
+
+1. Cách truyền props
+
+Khai báo props tại component cha
+Nhận props tại component con
+//check với: number, string, object
+//todo: tạo array todo list truyền qua component con
+//sử dụng react dev tool để xem trực tiếp data
+
+2. Một vài cách code
+//lưu ý về các cách code và destructuring data
+
+Về cú pháp destructuring data: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+Cách 1: lấy props trực tiếp từ đầu hàm
+Cách 2: sử dụng props với destructuring object
+Cách 3: lấy data trực tiếp qua props lấy trực tiếp thuốc tính có trong props qa tham số của hàm {tên thuộc tính}
+
+##VIII - Truyền Function từ cha sang con##
+
+Ví dụ trường hợp:
+Trong table có 1 button, khi nhấn button này sẽ open Modal
+https://4x.ant.design/components/modal/
+
+Trong thế giới của JavaScript, data bao gồm biến số và function.
+
+Nếu props cho phép truyền biến số từ cha sang con, liệu có thể là function ?
+
+##IX -  DOM Events##
+Tài liệu: https://react.dev/learn/responding-to-events
+Danh sách event: https://www.w3schools.com/jsref/dom_obj_event.asp
+
+2 sự kiện hay dùng nhất là click và change
+onClick: sử dụng chuột để click
+
+onChange: gõ giá trị vào input đối với onChange react có cung cấp 1 tham số "event" ~ props của html có kiểu SyntheticBaseEvent trong object này cho t biết đag làm việc với tag nào thông qa .target(thông qa đây có thể lấy giá trị .value), kiểu sử kiện .type 
+	nhưng nó chỉ lấy được .value trong cái sự kiện onChange vì pạm vi sử dụng của event chỉ nằm trong hàm onChange
+
+-> để hàm/sự kiện khác lấy được event trong onChange cần nhờ tới bộ nhớ của react tương tự như máy tính thì các chương trình sẽ hoạt động độc lập với nhau -> muốn chia sẽ chung data cần pải lưu nó vào memory đối với react thì có state chính là react memory
+
+##X -  Kiểm Soát Data với State - useState Hook##
+mỗi lần gõ kí tự vào ô input -> tự động in ra giao diện text đó đối với Angular thì có model Engine ~ đối với react để kiểm soát được data giữa các component khác nhau thì có khía niệm state (ý tưởng: 	khi onChange -> lưu dữ liệu vào state memory khi nào cần lấy ra từ đây) 
+
+all thing nên code bên trong 1 component (function) -> mới dùng được JSX 
+
+dùng useState hook để có thể cập nhật được giá trị của 1 biến (setter/getter)
+
+const [myText, setMyText] = useState("Trong");
+- myText là tên biến
+- setMyText là 1 function để cập nhật biến
+- Hook useState được import từ react và khởi tạo giá trị cho biến myText ("Trong")
+- Khi click vào useState: function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>]; trước tiên đưa vào kiểu dữ liệu Generate và đối với function đó trả ra 1 array bao gồm biến, một function cập nhật giá trị -> ở ngoài khi khởi tạo biến cũng pải gồm những thành pần đó giống như destructoring Object thì đây là destructoring array 	
+- Khi thay đổi dữ liệu của state thì giao diện sẽ tự thay đổi theo 
+-> bây h mìh sẽ thay đổi biến myText thông qa function setMyText -> giao diện sẽ thay đổi theo và khi nào muốn sử dụng biến này chỉ cần gọi tên nó ra vì nó đã được lưu vào bộ nhớ của React (thay đổi động)
+
+-> state cũng như props đều có thể truyền cho con sử dụng được nhưng đối với state thì có thể cập nhật giá trị, còn props chỉ có thể truyền từ cha sang con và chỉ cha mới thay đổi giá trị của nó 
+
+có 2 cách để thay đổi(thêm 1 pần tử mới) 1 state là 1 array: 
+	- thay đổi trực tiếp biến state đó state.push: nếu dự án lớn sẽ dễ gặp bug + sau đó set giá trị của nó lại
+	- set giá trị setTodoList([...todoList, newToDo]); copy lại all giá trị cũ ( = spread syntax) thêm giá trị mới 
+
+-> props và state khi thay đổi sẽ tự động cập nhật giao diện -> có thể hạn chế được việc load trang vì khi thay đổi giá trị state/props sẽ tự thay đổi trên thời gian thực mà ko load lại trang 
+
+Tài liệu: https://react.dev/learn/state-a-components-memory
+Mục tiêu: khi nhấn button, có thể lấy được giá trị của input dùng usestate hook
+
+Đặt state là array trên component cha
+Component con sử dụng JSON.stringify
+
+##XI - Re-render với State##
+
+Javascript random number between range 
+
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+Mục tiêu: nhấn button Add new => thêm mới data
+
+##XII - Render List##
+
+Tài liệu: https://react.dev/learn/rendering-lists
+
+1.Render List với map
+
+Giới thiệu về map, tham khảo https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+dùng map sẽ render ra 1 new array 
+
+So sánh với for loop:
+https://stackoverflow.com/questions/76868163/react-looping-over-map-vs-array
+
+Đối với map, bạn lặp qua từng phần tử và tạo ra 1 array mới
+(tức là return một giá trị mới) => rất an toàn để bạn “mutate” data (sửa đổi data)
+
+Đối với vòng lặp for, bạn lặp qua từng phần tử, và “không trả ra array mới”
+Về for-each, tham khảo https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+ 
+//todo: CSS thêm button Delete
+
+hiện tại đang bị lỗi Warning: Each child in a list should have a unique "key" prop. lỗi này khi dùng map để lặp render dữ liệu ra giao diện -> nó yêu cầu cần key sai ở đây: todoList.map((item, index) => {
+                    return (
+                        <div className="todo-item">
+                            <div>{item.name}</div>
+                            <div><button>Delete</button></div>
+                        </div>
+                    )
+                })
+-> cần gán key cho mỗi pần tử khi lặp qa
+
+##XIII - Each child in a list should have a unique “key” prop##
+1. Phân biệt warning và error
+Giống nhau: đều có chữ “màu đỏ”, màu đỏ “thường” không tốt, right ?
+Khác nhau: 
+Error : gần như 99% là bạn cần fix, vì khi có error, xác suất rất cao ứng dụng sẽ không chạy (trừ khi bạn đã handle nó - try/catch exception)
+
+Warning: tỉ lệ cần fix là 50-50, bạn có thể fix hoặc không. Gọi là “cảnh báo”, vì nếu fix được, hiệu năng ứng dụng của bạn sẽ đạt hiệu quả tối đa
+2.Tại sao React cần key trong vòng lặp
+chúng ta ko sử dụng/nhìn thấy key chỉ dùng cho react pân biệt/định danh các pần tử của nó -> để giúp nó có thể thực hiện việc CRUD một cách hiệu qả trên từng pần tử 
+Khi sử dụng vòng lặp để render, phần tử nào cũng giống phần tử nào.
+
+Vấn đề sẽ phát sinh, nếu chúng ta “mutate” data (bao gồm thêm/sửa/xóa)
+Ví dụ: khi bạn thêm mới 1 phần tử vào array sau: (phần tử 4 được thêm mới)
+Hoặc, bạn xóa phần tử có giá trị là 2 ra khỏi array ?
+<li> 1 </li>
+<li> 2 </li>
+<li> 3 </li>
+
+React sẽ xử lý như thế nào ?
+khi thêm mới 1 pần tử thì ta chỉ chỉnh sửa pần tử cuối cùng  -> mục đích key sih ra để bảo với react chíh xác pần từ cần thay đổi trên cay DOM tức là chỉ thêm đúng 1 pần tử chứ ko pải đi render lại all giao diện ~ xóa,update
+-> khi thêm mới 1 pần tử react sẽ xét xem nó đã có key chưa nếu chưa có -> nó sẽ tạo mới pần tử đó. Nếu đã có key rồi thì nó sẽ update, ...
+
+-> cần key để biết xử lý chính xác giao diện nào chứ ko vẽ lại all giao diện 
+
+=> react sử dụng key để định danh phần tử. 
+Nếu key tồn tại => update /delete
+Nếu key không tồn tại => thêm mới
+
+3. Sử dụng key như thế nào cho chuẩn
+Mặc định, nếu bạn không dùng key, React sẽ tự động sinh key (sử dụng index của array)
+
+Không nên dùng key là chỉ số của mảng (index), hoặc chuỗi string gắn liền với index ví dụ
+	todoList.map((item, index) => {
+                    return (
+                        <div className="todo-item" key={index}>
+                            <div>{item.name}</div>
+                            <div><button>Delete</button></div>
+                        </div>
+                    )
+                })
+nếu mảng ít pần tử và chỉ có thêm mới hoặc xóa pần tử -> ko có bug khi dùng chỉ số mảg nhưng nếu mảng nhiều dữ liệu và quan trọng vấn đề sắp xếp dữ liệu/thứ tự của từng pần tử -> sẽ gặp bug
+
+ví dụ dùng index của mảng có 3 div -> lần lượt sẽ có 3 key 012 nếu ta xóa đi div ở giữa -> mảng thay đổi index (tức là nó xóa đi pần tử đag có key là 1 -> pần tử có key là 2 sẽ trở thành có key = 1 theo index của mảng mới) -> khi key của div này thay đổi thì react nó sẽ render lại pần tử này -> ko nên dùng chỉ số của mảg làm key 
+
+Key phù hợp : tức là fix cố định mỗi pần tử có 1 key trước khi đưa nó vào vòng lặp - render ra giao diện 
+Sử dụng id lấy từ backend
+Generate id “trước khi vào vòng lặp”
+
+##XIV -  Render với điều kiện##
+
+Về toán tử điều kiện của Javascript, tham khảo https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
+
+Điều kiện: nếu size = 0, hiển thị hình ảnh
+Size > 0, hiển thị danh sách todo list
+
+##XV - Bài tập Delete Todo##
+Gợi ý: sử dụng filter, tham khảo https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+Các bước thực hiện:
+
+Bước 1: Viết sự kiện onClick cho button Delete
+
+Mỗi lần nhấn vào button, cần lấy được id của todo cần xóa
+
+Bước 2: Gọi function của component cha
+Vì hành động click button xảy ra tại component con, trong khi todoList được component cha quản lý => cần phải truyền function từ cha xuống con
+
+Tại component cha, cần viết function để xóa todo (dựa vào id là input đầu vào)
+
+Bước 3: Xóa todo
+Sử dụng hàm filter để xóa
+Set State với data đã  filter
+
+##XVI - Tổng kết các kiến thức đã học##
+
+1.Kiến thức nền tảng của React
+//cài đặt react dev tool (đã làm)
+
+Props: (viết tắt của property - tài sản), là cách chúng ta truyền dữ liệu từ cha sang con
+
+State (trạng thái), được sử dụng qua useState hook
+
+Chỉ cần props/state thay đổi, component sẽ re-render
+
+2.Kiến thức khác
+Cú pháp JSX (dấu { } )
+Cách render data (array) với map
+Cách sử dụng câu điều kiện
+
+Cách kiểm tra version của React ?
+Tại sao gọi là hook ?
+Lịch sử ra đời, react class sử dụng hook từ (react hook) version 16.8 nếu trước đó thì ko sử dụng được chỉ dùng react class thôi viết theo hướng đối tượng và mỗi đối tượng sẽ có function render ~ return () như hiện tại và thuộc tính state ~ useState Hook 
+
+code hiển tại là theo hướng function nhưng đối với function nó chỉ thực thi 1 lần ko chạy nhiều lần được nhưng khi sử dụng useState (tức là hook) nó sẽ chạy nhiều lần 
+
+
+====Chapter 5: Điều Hướng Trang Với Router====
+Tìm hiểu cách tạo nhiều page và điều hướng trang với React Router
+
+##I -  Giới Thiệu về Router##
+
+React là thư viện (library), nó chỉ chịu trách nhiệm render (vẽ UI) thông qua props/state và JSX
+
+Vì vậy, nếu bạn muốn nhiều hơn, ví dụ như điều hướng trang (router), bạn sẽ cần “tự làm”
+
+Nếu React tích hợp sẵn Router, nó sẽ là framework (ví dụ Next.js)
+
+1.Cài đặt thư viện
+https://www.npmjs.com/package/react-router-dom
+
+paste vào cmd để cài đặt thư viện: npm i --save-exact react-router-dom@6.23.1 sau khi cài đặt thành công trong file packae....json sẽ có thêm "react-router-dom": "6.23.1"
+
+Trang chủ: https://reactrouter.com/en/main
+
+Lưu ý : Bạn vui lòng cài đặt thư viện bằng cách sử dụng câu lệnh ở trên và làm giống như video.
+
+Thư viện router nó sẽ cập nhật theo thời gian, vì vậy, điều quan trọng nhất chính là cách bạn tư duy để giải quyết vấn đề (chính là cái khóa học sẽ hướng dẫn bạn)
+
+##II - Tích Hợp Router##
+
+Tài liệu:
+https://reactrouter.com/en/main/start/tutorial
+
+Lưu ý: có thể giao diện website sẽ thay đổi theo tương lai, nên điều quan trọng nhất chính là khả năng bạn đọc tài liệu và thực hành (cái mà video hướng dẫn)
+
+Mục tiêu, tạo các page:
+Homepage: /
+/users
+/products
+/login
+/register
+
+Bước 1: import vào file main.jsx 1 tạo router + provider để điều hướng trang
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+Bước 2:
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+]);
+ở đây element với value là tag html -> mình có thể thay nó = tag chính của mìh
+
+Bước 3:
+comment <App />
+thêm <RouterProvider router={router} /> 
+
+Chung quy: 
+	Bước 1 khai báo công cụ
+	Bước 2 khai báo các router tạo ra router dùng createBrowserRouter đây là hình thức lưu lịch sử duyệt website trong này sẽ khai báo từng đối tượng gồm: path chính là đường link url, ứng với mỗi path cần render ra element nào bản chất của element cũng chính là component của react
+	Bước 3 khai báo cho react thông qua <RouterProvider /> trong này cần 1 biến router 
+
+##III - Cấu trúc dự án React (Extra)##
+
+Tài liệu: 
+https://legacy.reactjs.org/docs/faq-structure.html
+
+https://dev.to/itswillt/folder-structures-in-react-projects-3dp8
+
+React là library, vì vậy, tương tự như router, việc bạn chia cấu trúc như nào, phụ thuộc vào chính bản thân bạn.
+
+Nếu React tích hợp sẵn việc chia cấu trúc thư mục, nó sẽ là framework (ví dụ Next.js)
+
+1. Chia base cấu trúc dự án
+Cách chia cấu trúc thư mục trong khóa học mang tính chất tương đối. Điều quan trọng là bạn có khả năng mở rộng và bảo trì dự án của bạn.
+
+src:
+- assets: lưu hình ảnh
+- components: lưu các component trong ứng dụng
+- routes
+- pages/screens: các route/screen 
+- services: gọi backend
+
+
+//todo: chia base component
+
+##IV - Tạo Header/Footer##
+Tài liệu:
+https://www.w3schools.com/css/css_navbar_horizontal.asp
+https://www.w3schools.com/howto/howto_css_fixed_footer.asp
+
+1.Tạo Header
+Test nhanh header https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_black_active
+//Về CSS
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+Về HTML:
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+
+2. Tạo footer
+Test nhanh footer tại đây
+
+//CSS
+.footer {
+   position: fixed;
+   padding: 10px;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #ccc;
+   text-align: center;
+}
+
+//HTML
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+##V - Nested Routes với Outlet##
+Tài liệu:
+https://reactrouter.com/en/main/start/tutorial#nested-routes
+
+Khi sử dụng nested route, component con sẽ kế thừa lại “layout” của component cha.
+
+nếu khai báo như trước all object (path,element, ...) đều sẽ ngang hàng muốn nó có qan hệ cha con dùng children: [paste những object con vào đây]
+
+sau khi cấu hình trên xog thì mỗi lần vào các url con nó sẽ render ra giao diện của cha (kế thừa full giao diện của cha) -> dùng tag <Outlet/> ở parent để chỉ định nơi render ra giao diện của con trên giao diện của cha 
+
+Layout kế thừa:
+Header
+Footer
+
+Sử dụng Outlet để render component con (trong layout của component cha)
+
+##VI - Client Route với Link##
+Tài liệu: https://reactrouter.com/en/main/start/tutorial#client-side-routing giải quyết vấn đề khi bấm vào các thẻ <a/> để chuyển hướng thì bị reload lại trang
+
+theo link này họ chuyển dùng thẻ <a/ href> -> dùng <Link to/> import từ react-router-dom thực chất thì thẻ <Link> cũng render ra thẻ <a> nhưng nó đã chặn bớt pần event của js (như là event reload lại trang)
+
+##VII - Active Link##
+Tài liệu: https://reactrouter.com/en/main/start/tutorial#active-link-styling xử lý việc khi bấm vào từng thẻ <Link/> -> cần thêm class="active" cho tag đó để nó sáng lên -> dùng NavLink thay vì link mỗi lần vào 1 url nó sẽ check url trog thuộc tính "to" của chính nó nếu pải url đó thì tự động thêm class="active" nếu ko pải nó sẽ remove class đó hoặc ko làm gì 
+
+
+##VII -  Index Route##
+Tài liệu: 
+https://reactrouter.com/en/main/start/tutorial#index-routes xử lý vấn đề khi vào url con thì một số pần giao diện của cha ko muốn nó hiển thị lên làm ntn ?
+
+Index Route giúp chúng t khai báo mặc định khi vào 1 url thì cha/con nó chỉ render ra khối code nào: 
+khai báo 1 child nữa trong Parent child này đặc biệt ở chỗ là element(component) này chỉ hiển thị tại Parent ở Child sẽ ko hiển thị { index: true, element: <Index /> } 
+
+##VIII - Xử lý NotFound##
+Tài liệu: 
+https://reactrouter.com/en/main/start/tutorial#handling-not-found-errors
+
+import { useRouteError } from "react-router-dom";
+
+export default function ErrorPage() {
+  const error = useRouteError();
+  console.error(error);
+
+  return (
+    <div id="error-page">
+      <h1>Oops!</h1>
+      <p>Sorry, an unexpected error has occurred.</p>
+      <p>
+        <i>{error.statusText || error.message}</i>
+      </p>
+    </div>
+  );
+}
+
+Note:
+Về React Router, không cần học quá sâu vào nó, vì các tính năng chuyên sâu sẽ được các framework sử dụng
+
+====Chapter 6: Setup Dự Án Backend====
+Setup dự án backend để có data phục vụ frontend React
+
+##I - Giới thiệu về dự án thực hành##
+
+Mục tiêu: Thực hành sử dụng React để xây dựng website, kết hợp với backend
+
+Công cụ: Frontend React, Backend (được cung cấp sẵn)
+
+Tính năng:
+
+CRUD Users : thêm/sửa/xóa/hiển thị Users với dữ liệu lưu trữ tại backend
+Đăng ký (register), đăng nhập (login)
+Nếu đăng nhập thành công, trả về access_token (mô hình stateless)
+CRUD Books : cần truyền access_token để có thể sử dụng
+
+##II -  Backend là gì##
+
+1. Website thực tế gồm những gì ?
+Gồm 3 thành phần chính:
+Frontend (ví dụ như React), chạy tại browser
+Backend (ví dụ java, php, nodejs…), chạy tại máy chủ server
+Database: nơi lưu trữ dữ liệu
+
+Quan hệ : Frontend (FE) gọi tới => Backend (BE) query => Database
+
+2. Tạo sao mình React không làm được website ?
+Cách chúng ta code React từ trước đến nay, đã xây dựng được website, tuy nhiên tính thực tế không cao.
+Lý do: data bị mất mỗi lần F5 (refresh), và chúng ta đang “hardcode” dữ liệu
+
+Mục tiêu: xây dựng tiki, shopee, facebook… chúng ta sẽ cần nhiều hơn, và cần sử dụng thêm các công cụ khác.
+
+Why ?
+React là frontend (HTML/CSS/JS), chạy ở phía browser, chỉ chịu trách nhiệm vẽ UI thông qua các component
+Website thực tế cần lưu trữ dữ liệu, để mỗi lần người dùng F5 (refresh), dữ liệu không bị mất như cách chúng ta đang làm
+
+3. Backend là gì ?
+Backend là cách chúng ta quản lý dữ liệu của website, mục đích phục vụ cho frontend.
+Quản lý dữ liệu, bao gồm : truy vấn (query) data (GET) và mutate data (create/update/delete)
+
+##III -  API là gì ##
+
+API = application programming interface 
+API là cầu nối giữa frontend và backend
+
+Ví du:
+https://jsonplaceholder.typicode.com/
+https://jsonplaceholder.typicode.com/todos
+
+Hiểu đơn giản nhất về API:
+API là một đường link URL. Frontend sẽ gọi vào URL đấy để lấy dữ liệu (rồi hiển thị lên giao diện)
+Backend chính là người tạo nên API (URL để frontend dùng)
+API thường được hiển thị dưới định dạng JSON: https://www.w3schools.com/js/js_json.asp
+
+##IV - Cấu hình database MongoDB##
+
+Cài đăt MongoDB Compass
+MongoDB Compass không phải là database. Nó chỉ đơn thuần là một phần mềm giúp bạn thao tác với database (MongoDB)
+Database của khóa học sẽ được tạo tại các video tiếp theo (lưu trữ trên cloud)
+Link download: https://www.mongodb.com/try/download/compass
+
+Tạo tài khoản Mongodb Atlas
+https://www.mongodb.com/cloud/atlas/register
+
+Tạo Database cho dự án
+Lưu ý check allow anywhere
+Lưu lại thông tin kết nối tới database
+
+Tài khoản admin: Thtrong && G5K0dqWBfrxUL2ai
+Link kết nối: mongodb+srv://Thtrong:G5K0dqWBfrxUL2ai@cluster0.2sweg.mongodb.net/
+
+Kiểm Tra Kết Nối Database
+Lưu ý: sau này bị lỗi, có thể tạo lại database
+Công cụ: phần mềm Mongodb Compass
+Lưu lại connection
+
+##V - Cài đặt Backend##
+
+Node Js
+
+Bước 1: download source code backend https://drive.google.com/file/d/1P28iBw1yjGUyNQCAS-SlnfjcIqRcMzqj/view
+Bước 2: update file .env (với url mongodb)
+MONGO_DB_URL=mongodb+srv://Thtrong:G5K0dqWBfrxUL2ai@cluster0.2sweg.mongodb.net/tên_database, lưu ý thêm tên của database
+
+
+Bước 3: chạy dự án
+
+Cài đặt thư viện cần thiết với câu lệnh: npm i
+
+Chạy dự án với câu lệnh: npm run dev
+
+Truy cập: http://localhost:8080/
+
+Nếu có lỗi xảy ra, cần chú ý terminal của source code
+//todo: minh họa lỗi kết nối tới database
+
+##VII - Cài đặt Postman Test API##
+
+Nguyên tắc khi sử dụng API:
+nếu postman gọi được API => backend không có lỗi, lỗi nằm tại code frontend
+
+Bước 1: Cài đặt Postman
+https://www.postman.com/downloads/
+
+Bước 2: Import collection
+File collection nằm trong source code backend, đã tải tại video #60
+File -> Import -> chọn file collection
+
+Bước 3: Chạy backend
+với câu lệnh: npm run dev
+
+Bước 4: Test API
+Nếu gọi API thành công, chứng tỏ mọi công cụ đã hoạt động (bao gồm backend và database)
+
+
+====Chapter 7: Module Users====
+Thực hiện CRUD Users với React và Antd
+
+##I - Có bao nhiêu cách code CSS với React##
+Không có khái niệm là học React, cần phải CSS như nào, vì vốn dĩ, React nó “không quan tâm” tới việc bạn CSS ra sao. Hãy nhớ, React là cách vẽ ra UI, và CSS là công cụ của nó (được React sử dụng)
+
+Vì vậy, trong các dự án thực tế, phụ thuộc vào từng công ty, sẽ có cách code khác nhau. Việc của bạn, là hãy trang bị những kiến thức cơ bản nhất về công cụ đấy.
+
+Cách 1 (dễ nhất) là cách đang sử dụng trong dự án, tạo riêng lẻ các file .css và import vào component
+
+Ưu điểm: đơn giản, tiện lợi
+Nhược điểm: code dài dòng và có thể bị trùng tên class (ghi đè css của nhau)
+
+Cách 2: kế thừa cách 1, bổ sung thêm “module” để hạn chế tối đa việc conflict (ghi đè CSS)
+Tham khảo: https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+thay vì tên file .css -> thêm tiền tố module: .module.css ... nhờ thuật toán của nó mặc dù trùng tên class nhưng nó sẽ tự động generate 1 số kí tự + className đó để tránh việc trùng lặp 
+
+Nhược điểm: code vẫn dài dòng :v  
+
+Cách 3: sử dụng Sass (SCSS) less: khá phổ thông ~ pát triển từ 2 cách code trên 
+
+Cách 4: Tailwind CSS (framework) 
+https://tailwindcss.com/
+
+Ưu điểm: tất cả mọi thứ với CSS, có thể code ngắn gọn hơn thông qua các thuộc tính của Tailwind
+
+Nhược điểm: code dài (và yêu cầu bạn cần học tailwind)
+
+Cách 5: CSS in JS (tương tự React Native)
+https://cssinjs.org/?v=v10.10.1#react-jss-example
+
+##II -  Các Thư Viện Về Component##
+
+Mục đích sử dụng thư viện, là giúp giảm thiểu thời gian code Component
+
+Component của các thư viện, cần đảm bảo các yếu tố chính sau đây:
+Component cần phải “đẹp”, dễ nhìn
+Component cần phải có sự tương tác (đã hỗ trợ các hiệu ứng CSS), ví dụ như Tooltip, Modal…
+Component cần hỗ trợ chia layout responsive
+Component cần có tài liệu rõ ràng và dễ sử dụng.
+
+1.Các thư viện cung cấp component phổ biến
+
+Bootstrap: nếu bạn đã dùng bootstrap với HTML, bạn cũng có thể dùng nó với React, thông qua react-bootstrap https://react-bootstrap.netlify.app/docs/getting-started/introduction/
+
+Ưu điểm: gần gũi với tư duy Bootstrap và HTML
+Nhược điểm: số lượng component hạn chế (ít component)
+
+MUI (Material UI): cung cấp component tương tự layout của Google (Google's Material Design)
+Tham khảo https://mui.com/material-ui/getting-started/
+
+Ưu điểm: bạn control 100% component sử dụng
+Nhược điểm : số lượng component ít (với bản FREE)
+
+Antd (Ant Design): cung cấp đa dạng các component, tham khảo https://ant.design/
+
+Ưu điểm: đa dạng component
+Nhược điểm: hàng tàu khựa (Trung Quốc)
+
+Ngoài ra còn rất nhiều thư viện UI ngoài kia như Chakra UI: https://v2.chakra-ui.com/getting-started, PrimeReact: https://primereact.org/ …
+
+##III - Cài đặt Antd##
+
+Cài đặt antd:
+https://www.npmjs.com/package/antd
+
+Cài đặt antd icons:
+https://www.npmjs.com/package/@ant-design/icons
+
+Sử dụng câu lệnh cài đặt sau:
+npm i --save-exact antd@5.18.1 @ant-design/icons@5.3.7
+
+"dependecies": 
+	...
+	"@ant-design/icons": "5.3.7",
+	"antd": "5.18.1",
+	...
+
+Antd: cài đặt để sử dụng các component sẵn có của Antd
+Antd-icons: sử dụng các icons của Antd
+
+Cách sử dụng Antd Component (Bonus)
+Trang chủ: https://ant.design/components/table
+
+Để cấu hình table này cần 
+- columns: là mảng các cột gồm title là tiêu đề cột, dataIndex đây là thuộc tính để mapping dữ liệu với data, ... ngoài ra còn có các thuộc tính decorate
+- data: là mảng các dữ liệu của các cột ~ 1 hàng dữ liệu, mỗi hàng là object với key:value key pải trùng với dataIndex của columns thì mới mapping dữ liệu được	
+
+##IV - Tạo Base Giao Diện Users##
+
+//chưa làm giao diện responsive
+
+//tạo form user phía trên table
+https://ant.design/components/input
+
+https://ant.design/components/button
+
+//sử dụng component table
+https://ant.design/components/table
+
+##V - State Hóa Form##
+//lấy data của user khi submit form
+Khi dùng attr value cho thẻ Input thì giá trị đó sẽ ko chỉnh sửa được -> dùng biến state để thay vào đây -> khi thay đổi state giá trị sẽ thay đổi theo 
+
+Khi dùng state với react khi state thay đổi thì nguyên cái component (function) nó sẽ chạy lại code sẽ chạy lại từ trên xún để nó re-render lại giao diện
+
+##VI - Sử dụng thư viện để gọi API##
+
+Có rất nhiều cách để gọi API từ frontend: https://stackoverflow.com/questions/36975619/how-to-call-a-rest-web-service-api-from-javascript
+	Có thể dùng thư viện hoặc dùng browser hỗ trợ sẵn fetch (mà không cần cài đặt gì): https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+Dùng thuần Js thì dùng Fetch 
+Dùng Jquery code JS ở backend thì dùng XMLHttpRequest 
+Hoặc dùng ajax để gọi API khi dùng JQuery 
+
+Axios: https://github.com/axios/axios
+Request: https://www.npmjs.com/package/request
+
+Cài đặt thư viện axios:
+https://www.npmjs.com/package/axios
+
+npm i --save-exact axios@1.7.2
+
+##VII - Tạo mới User##
+
+Chuẩn bị:
+Đảm bảo rằng bạn đã chạy backend
+Có thể test api = postman để biết api có hoạt động hay không
+
+1.Giới thiệu nhanh về RESTful API
+GET : lấy dữ liệu (query/fetch data)
+POST: tạo mới dữ liệu
+PUT: update dữ liệu
+DELETE: xóa dữ liệu
+
+2.Gọi API
+Sử dụng method POST với axios:
+https://axios-http.com/docs/post_example
+
+axios.post(url, data: định dạng là 1 object, config: cấu hình header, Bearer token, ...) tham số kiểu generate của TypeScript kiểm dữ liệu trả về là promise -> có thể dùng async await để hứng kết qả 
+
+Mục tiêu: tạo mới user thành công
+
+để hiển thị thống báo thành công = 1 modal -> dùng notification của Antd 
+	    notification.success({
+                message: "create user",
+                description: "Create successful user"
+            })
+
+##VIII - Config Axios Interceptor##
+1.Kỹ năng f12 để check api
+F12 (hoặc mở Google Chrome devtool) -> chọn tab Network -> chọn API
+
+//tách service
+
+//lưu ý: chưa validate dữ liệu
+
+//nếu tạo thành công, hiển thị thông báo
+
+2.Cấu hình Interceptors
+https://github.com/axios/axios?tab=readme-ov-file#custom-instance-defaults
+
+https://axios-http.com/docs/interceptors
+
+Interceptor tương tự middleware (người đứng giữa), giúp bạn can thiệp vào request và response của lời gọi từ frontend lên backend
+
+Mô hình chiều đi (request):(1)
+Frontend -> gọi tới axios -> interceptor xử lý request (gán thêm thông tin) -> backend
+
+Mô hình chiều về (response):(2)
+Backend -> interceptor xử lý response (format data) -> frontend
+
+Cấu hình lại axios: 
+
+Quá trình (1)
+
+- Cấu hình instance trước khi tới backend gán thêm baseURL vào url của api
+	 const instance = axios.create({
+	    baseURL: 'https://api.example.com' #đây là url của backend 
+	 });
+**cùng 1 dự án frontend gọi đến nhiều server của backend thì dùng instance của axios cực kì hiệu quả = cách nhân bản thêm 1 instance khác 
+Quá trình (2)
+
+- cấu hình lại phần response trước khi trả về data bỏ bớt những pần ko cần thiết chỉ return về data cần hiển thị
+instance.interceptors.response.use(function (response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    if (response?.data?.data) return response.data
+    return response;
+}
+
+##IX - Xử Lý Lỗi với Interceptor##
+Tài liệu: 
+https://github.com/axios/axios?tab=readme-ov-file#custom-instance-defaults
+https://axios-http.com/docs/interceptors
+
+Check trên browser khi gửi 1 API: Network - Fetch/XHR bấm vào api 
+- Header: kiểm tra url, method, tokens, ...
+- Payload: thông tin gửi lên từ frontend -> backend
+- Preview: pản hồi từ backend -> frontend (xem nhanh ngắn ngọn hơn Response)
+- Response: full data pản hồi từ backend -> frontend 
+
+Tài liệu: https://vitejs.dev/guide/env-and-mode cấu hình các file môi trường
+Có thể đẩy những tham số ít thay đổi này vào file môi trường .env như .env.development/production lưu ý những file này phải được đặt ở cấp ngoài cùng cùng cấp với các file như package.json: 
+- những biến trong file này cần đặt tiền tố VITE_ phía trước
+- để sử dụg nhữg biến này: import.meta.env.VITE_
+
+Cấu hình thêm: xử lý trường hợp khi ko nhập liệu thì backend vẫn gửi response về nhưng axios gửi error chưa hợp lý -> cấu hình lại chỗ này trong error mà nó trả ra thì pần response của backend nằm ở error.response.data ta sẽ return ra cái này (can thiệp vào quá trình (2))
+
+Nếu ko cấu hình cái trên vẫn muốn customize thì dùng try catch để bắt lỗi của async await function gọi đến nó khi trường hợp promise trả về reject
+
+##X -  React Lifecycle##
+Tài liệu: 
+https://legacy.reactjs.org/docs/state-and-lifecycle.html
+https://react.dev/learn/lifecycle-of-reactive-effects
+
+1.Bài toán đặt ra
+//todo: viết api fetch user (chưa phân trang - pagination)
+
+Nếu set lại state như này trong component UserTable:
+	const loadUser = async () => {
+        	const res = await fetchAllUsers()
+	        setDataUser(res.data)
+        }
+	loadUser() 
+-> vòng lặp vô hạn vì khi nó chạy đến loadUser() -> nó sẽ chạy vào và set lại state khi state bị set lại -> nó sẽ chạy lại nguyên component để re-render lại component nó lại sẽ chạy vào loadUser() ...
+
+Cần gọi api để lấy danh sách users, render vào table
+Việc gọi API là bất đồng bộ (tốn thời gian) => sử dụng async/await
+
+Chỉ render data, khi đã có HTML
+
+Đối với react sẽ có 3 face/3 giai đoạn:
+- Mounting là giai đoạn chèn html vẽ ra giao diện 
+- Update các bước cũg tươg tự như Mounting
+- Unmount: ~ khi dùng facebook đứng ở trang chủ -> bấm sang watch -> thì nó cần pải xóa pần cũ/ xóa trag đó đi để vẽ lên trag mới (cái nào dùg thì mới vẽ nên ko thì xóa đi để tăng hiệu năng)
+
+Mounting/Update -> dịch code (JSX) -> render view -> unmount
+
+để xử lý lặp vô hạn trên pải dựa trên base 3 giai đoạn này -> dùng useEffect
+
+2. React Lifecycle
+Tại sao lại cần useEffect (tức là ko viết await ở trên), rồi cho chạy code
+
+##XI -  useEffect Hook##
+
+1.useEffect Hook
+Là 1 function đặc biệt, chạy sau khi component của bạn “đã mount”
+Có nghĩa là đã có HTML để cho bạn sửa đổi “giao diện”
+nên khai báo nó ngay bên dưới khi khai báo useState
+
+useEffect(() => {}, []) tham số đầu tiên là arrow function, thứ 2 là dependecis 1 biến optional [] có thể truyền hoặc ko
+
+Nếu dependecies ko được khai báo thì useEffect sẽ chạy vô hạn
+Nếu dependecies được khai báo là 1 empty array -> useEffect sẽ chạy đúng 1 lần
+Nếu dependecies
+
+Trình tự chạy của 1 component: có useEffect, async await function
+- dù useEffect hay async await function ở đầu hoặc cuối của 1 function (component) thì component cũng sẽ chạy 1 trình tự: nó sẽ chạy code từ đầu đến cuối bỏ qa 2 cái đó -> return render ra component sau đó nó mới quay về chạy useEffect + async await function 
+- tức là useEffect giúp ta can thiệp vào qa trình update tức là lúc đó giao diện nó đã được mounting lên rồi đã được render rồi thì useEffect mới hoạt động được 
+
+-> sau khi update -> useState sẽ thay đổi -> chạy lại component nhưng lúc này useEffect sẽ ko được chạy nữa vì đã qa giai đoạn update 
+
+=> dùng useEffect để can thiệp vào giai đoạn update (ép component re-render): đợi render xog ra giao diện - chỉ định đúng cái cần update 
+
+Khi refresh lại giao diện thì thường thấy 1 component/ useEffect được chạy 2 lần -> đây là 1 tính năng của react để pát hiện bug khi chạy ở chế độ development với chế độ production nó sẽ chạy 1 lần 
+
+Để bỏ trường hợp chạy 2 lần -> comment dòng lệnh dùng  </React.StrictMode> trong file main.jsx tag này giúp fix bug hiệu qả hơn 
+
+Lưu ý: ko dùng async await cho function làm tham số trong useEffect tại vì function này sẽ khiến giao diện thay đổi -> ko nên can thiệp vào luồng chạy của react 
+
+//fetch tất cả user
+
+##XII - Design Modal Create User##
+Tài liệu: https://ant.design/components/modal
+
+ <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+ </Modal>
+
+##XIII -  Lifting State Up - Hoàn Thiện Create User##
+Tài liệu: 
+https://react.dev/learn/sharing-state-between-components
+
+Lift-up State là cách chúng ta đưa state của component con, đưa cho component cha quản lý.
+Component cha sẽ truyền lại data thông qua props xuống component con.
+Mục đích: chia sẻ data giữa các component “cùng cấp”. 
+Lift Up state là tìm cha gần nhất của các component, rồi sử dụng props để chia sẻ data
+
+Dùng lift-up state ứng dụng cho việc: khi 2 component cùng cấp muốn dùng gọi useState/function/... của nhau thì đưa useState/function/ này lên thằng cha của 2 component sau đó truyền xuống lại cho 2 đứa 
+
+Khi 1 useState thay đổi thì nguyên component sẽ bị render lại 
+
+
+##XIV - Design Modal Update User##
+
+Design header với menu:
+https://ant.design/components/menu
+
+const item = [ 
+	{key: , label},
+	{},
+	...
+]
+Lable chính là tên hiển thị ngoài giao diện xem kiểu dữ liệu có thể truyền vào label trong items: click vào items - click vào kiểu trả về của items là GenericItemType - click vào kiểu dữ liệu nó extends MenuItemType - tiếp RcMenuItemType -> kiểu dữ liệu truyền vào label là Optional React.ReactNode là 1 pần tử html -> có thể truyền vào 1 component 
+Có thể set dropdown = attr Child trong các Object 
+
+const [current, setCurrent] = useState('mail');
+    const onClick = (e) => {
+        console.log('click ', e);
+        setCurrent(e.key);
+};
+Mỗi Object trong items có 1 key nếu current trùng với key -> bật cờ active (có gạch dưới khi click 1 item)
+Ở đây vẫn còn 1 lỗi là khi click qa 1 cái khác ko pải mail setc cho current -> khi bấm reload lại trang nó sẽ tự độg set current là mail mặc dù đag đứng ở url khác vì nó tự render  lại component -> tự set lại current mặc định
+
+<Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+
+items: truyền vào 1 mảng các object là các pần tử trên Menu
+
+
+Design table với action update/delete:
+https://ant.design/components/table
+Thêm { title: 'Action', key: 'action',...) vào columns -> cột action này sẽ ko lấy data từ dataSource nhờ ko khai báo dataIndex cho object này -> nếu ko có data thì object này render dữ liệu ra giao diện nhờ attr render
+
+Thuộc tính render trong 1 object của columns cũng có kiểu trả về là 1 React.ReactMode -> nhập vào html/component
+render: (_, record) => (
+                <>
+                    <a>Invite {record.name}</a>
+                    <a>Delete</a>
+                </>
+            ), 
+viết ngắn gọn của 1 arrow function return về (html)
+ở đây record chính là 1 bản ghi/data của chính cột đó tức là nếu dataUser gồm nhiều User -> lặp qa và render ra thì mỗi lần lặp qa record chính là mỗi User
+
+
+Design modal update:
+https://ant.design/components/modal
+
+##XV - useEffect với Dependency##
+
+Sử dụng useEffect với dependency array, mỗi lần giá trị của dependency thay đổi, useEffect sẽ được chạy
+
+useEffect(() => fillUpdateModelData(dataUpdate), [dataUpdate]) 
+- dùng useEffect nếu ko truyền pần dependencies -> sau khi vẽ cây dom nó sẽ chạy vô hạn
+- nếu truyền vào [] thì sau khi vẽ dom nó sẽ chạy vào duy nhất 1 lần (nên dùng để init load data lên)
+- truyền vào 1 useState thì mặc định sau khi vẽ cay dom nó vẫn sẽ chạy vào 1 lần (xử lý lỗi nếu useState đag ko có giá trị có thể xảy ra lỗi), sau đó mỗi lần useState đó thay đổi ko chỉ component chứa useState đó đc re-render mà useEffect cũng được chạy lại 
+
+Bug: khi refersh lại trang thì useState dataUpdate = null khi click vào update của 1 hàng -> dataUpdate nó thay đổi -> chạy lại component + useEffect -> fill thông tin lên modal sau đó tắt modal thì all thông tin bị reset rỗng -> nhưng khi click lại vào update cùng hàng đó thì -> useState dataUpdate nó sẽ ko bị thay đổi giá trị -> useEffect nó ko được chạy vào -> thông tin trong modal nó sẽ ko được set 
+
+-> mỗi lần reset thông tin trên modal cũng pải reset luôn useState 
+
+cuối cùng gọi API update User ở backend 
+
+##XVI - Bài Tập Xem Chi Tiết / Delete User##
+
+1. Xem chi tiết
+Sử dụng component: 
+https://ant.design/components/drawer
+
+2. Xóa người dùng
+Sử dụng component: 
+https://ant.design/components/popconfirm
+
+====Chapter 8: Controlled Component vs Uncontrolled Component====
+So sánh ưu, nhược điểm của các cách code React và áp dụng uncontrolled component để nâng cao hiệu năng
+
+##I - Setup Eslint Giúp Phát Hiện Lỗi##
+
+Mục tiêu: khi gõ code, nếu gõ sai, phát hiện lỗi và cảnh báo
+
+Bước 1: Cài thêm extension ESLint: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+Restart VsCode nếu cần thiết
+
+Bước 2: cấu hình Rule
+'react/prop-types': 'off', vì khi code JS ko cần pải khai báo kiểu dữ liệu nên off check cái này
+'no-unused-vars': 'off', khi import thư viện/component ko sử dụng nó sẽ ko báo lỗi
+
+##II - Hiển Thị Avatar User##
+
+Hiển thị user với image (lấy từ backend)
+http://localhost:8080/images/avatar/file-name
+
+Tạo base upload button 
+
+##III -  Xử Lý Sự Kiện onChange với File##
+
+CSS Image, tham khảo https://stackoverflow.com/questions/3029422/how-to-auto-resize-an-image-while-maintaining-aspect-ratio
+
+1.Sự kiện onChange với File
+- File là loại dữ liệu đặc biệt, giúp bạn thao tác với “file upload” mà client gửi lên. https://developer.mozilla.org/en-US/docs/Web/API/File
+- Tham khảo ví dụ về sự kiện onChange https://developer.mozilla.org/en-US/docs/Web/API/File_API/Using_files_from_web_applications
+
+- Khi upload file, bạn có thể upload single file (1file/lần) hoặc multiple files (nhiều file/lần)
+
+- Quá trình upload file gồm 2 bước chính sau:
+
+Bước 1: người dùng sử dụng browser, nhấn upload btn, rồi chọn file cần upload
+
+Quá trình xảy ra: sau khi user chọn file upload, file sẽ được lưu trữ trong memory của browser
+Điều này đồng nghĩa, nếu bạn không xử lý gì thêm (ví dụ lưu trữ file), chẳng có gì xảy ra (tương tự todo, refresh website là mất dữ liệu)
+Khi file được lưu trữ trong memory, bạn có thể làm tính năng preview image, tức là hiển thị hình ảnh mà không cần tới backend
+
+Bước 2: nếu muốn lưu trữ file lâu dài, client cần tới backend để lưu trữ file.
+
+Lưu ý: sử dụng form-data thay vì json để upload file
+
+//todo: test api upload file
+
+onChange={(event) => handelUploadFile(event)}
+onChange={handelUploadFile}
+
+2 cách code này là như nhau với cách ko truyền tham số event thì đây là cách truyền tham chiếu all tham số ở onChange sẽ được truyền hết cho handelUploadFile sử dụng, còn truyền event -> nói rõ chỉ có 1 event được truyền và sử dụng 
+
+để lấy ra files thông qa event: event.target.files ở đây chỉ truyền 1 file ảnh -> lấy pần tử đầu event.target.files[0] trong này có attr size, type, ... sau này lấy cái này để validate
+
+Việc 1 function sử dụng 1 useState và setUseState thì khi set trước và sử dụng luôn trog function đó -> nó sẽ giữ giá trị cũ chứ ko set liền kết thúc hàm đó lần set cuối cùng và ra khỏi hàm đó sử dụng nó mới hiển thị kết quả đúng lần set cuối trog hàm đó 
+
+setPreview(URL.createObjectURL(fileUpload) -> sẽ tạo url tiền tố là blob pía trước -> hình ảnh này đag lưu bên trog memory trình duyệt -> nếu refresh lại browser sẽ mất vì browser sẽ xóa cache 
+
+2. Xây dựng preview Image với React
+Mục đích: client upload file và hiển thị tại browser (chưa lưu trữ tại backend)
+Tham khảo: https://stackoverflow.com/a/57781164
+
+##IV -  Hoàn thiện Update Avatar##
+
+Bước 1: Gọi API upload
+theo API cần truyền 2 tham số:
+- body: file upload
+- header: path lưu file này -> cần cấu hình theo axios
+
+customize header qua customize thêm config: https://stackoverflow.com/questions/45578844/how-to-set-header-and-options-in-axios
+cấu hình thêm header để backend biết được mìh gửi định dạng file thông qa form data (nếu ko nó sẽ hiểu là gửi String): https://stackoverflow.com/questions/47630163/axios-post-request-to-send-form-data 
+	headers: { "Content-Type": "multipart/form-data" }
+	sau đó tạo mới formdata -> append vào tên biến và value của nó tên biến đúng với API
+
+Khi customize xog Nếu gọi thành công, có được tên file upload -> kiểm tra API ở frontend request header đã có thêm pần content-type là multipart/form-data, upload-type: avatar -> server sẽ đọc pần này để lấy thông tin 
+Ngoài ra pần payload: dạng form data với tên theo tên đã cấu hình + nội dung thì dưới dạg binary
+
+-> ngoài ra sau này sẽ dùng đưa token vào đây
+
+Bước 2: Gọi API Update
+
+Truyền thêm avatar
+đối với dự án này API upload avatar hơi lỏ: 
+- const res = await uploadImageFile(selectedFile, "avatar"); -> /api/v1/file/upload 
+	Front end gửi ảnh -> server qa API này sau đó API này gửi về ảnh với 1 định dạng tên đã được mã hóa
+- const resUpdateAvatar = await updateUserAvatar(dataDetails._id, res.data.fileUploaded, dataDetails.fullName, dataDetails.phone); -> /api/v1/user 
+	sau đó gửi ảnh đó qua API update user để update lại avatar 
+
+- sau khi update xog:  xử lý set lại preview = null để ko hiển thị ảnh preview nữa + đóng drawer + loadUser -> done
+
+##V - Khái niệm Phân Trang - Pagination##
+Ví dụ phân trang với shopee, tiki
+
+1.Tại sao cần phân trang
+Tại 1 thời điểm, người dùng chỉ có thể xem một số lượng data nhất định (ví dụ 10 sản phẩm, 20 sản phẩm), trong khi bạn có cả trăm ngàn sản phẩm ???
+
+=> phân trang giúp tăng trải nghiệm của người dùng (chỉ hiển thị data cần thiết), đồng thời đảm bảo tốc độ load trang nhanh nhất có thể (ít data load sẽ nhanh)
+
+2.Kiến thức sử dụng khi phân trang
+Bản chất của việc phân trang, là sử dụng OFFSET và LIMIT (với sql)
+Tham khảo: https://www.w3schools.com/php/php_mysql_select_limit.asp
+https://www.sqltutorial.org/sql-limit/
+
+Backend sẽ dựa vào OFFSET và LIMIT để lấy lên dữ liệu tương ứng.
+
+Tuy nhiên, ở Frontend chỉ cần truyền số lượng phần tử lấy tối đa (LIMIT) và trang muốn lấy (PAGE), backend sẽ cần tự tính toán phần OFFSET
+
+Ví dụ: Frontend muốn lấy data tại page = 1, limit = 10
+Page =2, limit = 10
+
+3. Test API Phân trang
+//todo
+	    render: (_, record, index) => {
+                return (
+                    <span>{index + 1}</span>
+                );
+            },
+index ở đây sẽ hiển thị số thứ tự pần tử của table 0-9 mặc định thì Antd hỗ trợ pân trang cho table mặc định nó sẽ là 10 pần tử -> khi bấm sang trang khác index vẫn sẽ tính lại từ 0-9 -> pải dùng state để lưu trữ được trag mìh đag bấm vào có thể tùy chỉnh được số thứ tự trang này theo biến state đó 
+//viết base api phân trang
+//tạo fake data
+Truyền thêm 2 tham số là current và pageSize
+
+
+##VI - Sử Dụng Phân Trang với Antd##
+Tài liệu:
+https://ant.design/components/result
+https://ant.design/components/pagination
+https://ant.design/components/table#pagination
+
+pagination={
+{
+current: current,
+pageSize: pageSize,
+showSizeChanger: true,
+total: total,
+showTotal: (total, range) => { 
+	return (<div> {range[0]}-{range[1]} trên {total} rows</div>) 
+	}
+} 
+
+}
+
+//todo: update khi vào màn hình, cần gọi api phân trang
+
+Xử lý sự kiện onChange:
+const onChange = (pagination, filters, sorter, extra) => {  };
+<Table                
+	...
+	onChange={onChange}
+/>
+-> khi truyền tham chiếu như thế này all tham số của antd cung cấp cho onChange của table sẽ được truyền hết vào onChange function tự định nghĩa
+
+##VII - Khái niệm Re-render##
+1.Nguyên tắc của Re-render
+
+State/Props thay đổi => component re-render
+Nếu component cha render -> tất cả component component con re-render
+Cần chú ý tới form, vì có sự kiện onChange (mỗi lần typing là re-render) tức là trong 1 form khi nhập liệu 1 ô input all cái form đó sẽ được vẽ lại hết -> nên tối ưu khi nhập liệu ô input nào chỉ nên render lại chính ô đó thôi 
+
+Lưu ý: React có hiệu năng rất tốt. Bạn re-render hàng chục/tới trăm lần trên giây, nó vẫn chưa giật/lag
+
+2.Controlled Component vs Uncontrolled Component
+Control: kiểm soát
+Cách chúng ta đã làm, sử dụng state/props với form, gọi là controlled component
+
+Ưu điểm: bạn “Kiểm soát” từ a tới z . Muốn gì được nấy, đổi lại, bạn cần “tự code”
+Nhược điểm: re-render “quá nhiều lần” sẽ dẫn tới giật/lag giao diện
+
+Uncontrolled COmponent tức là ko sử dụng state của react
+
+- Khi 1 component sử dụng ít dữ liệu -> nên dùng controlled component để kiểm soát được hết bản chất nó là dùng state,props (khi 2 cái này thay đổi -> giao diện sẽ bị render lại)
+- khi 1 component nhiều dữ liệu + mún render ít + validate, format dữ liệu, ... -> dùng uncontrolled component (dùng thư viên ngoài)
+
+3.Các thư viện hay dùng
+- render ít
+- hỗ trợ validate dữ liệu
+- hỗ trợ format dữ liệu ...
+
+sẽ thao tác trực tiếp với html để lấy dữ liệu chứ ko dùng qa state/props
+
+dùng Antd -> dùng formik
+
+react hook form
+https://react-hook-form.com/
+https://www.npmjs.com/package/react-hook-form
+
+formik
+https://formik.org/
+https://www.npmjs.com/package/formik
+
+##VIII - Sử Dụng Uncontrolled Component Cho Register##
+Tài liệu: 
+https://ant.design/components/form
+
+//todo: design base form Register (fullName, email, password, phone)
+Bây h khi sử dụng uncontrolled component -> khi nhấn nút Resgiter thể biết được các ô input đag điền cái gì - lưu ntn vì ko thông qa state/props 
+-> dùng html thì dùng qa id/class thì dùng thư viện nó cũng sẽ tương tự như vậy để định danh ô input đó 
+
+để định danh nó cần bọc nó vào <Form/> <Form.Item/> của antd 
+nếu 1 component có nhiều form: -> cần khai báo form const [form] = Form.useForm(); và khai báo nó vào <Form/> để nhận biết 
+
+<Form onFinish={onFinish}/> onFinish có tham số là values chưa all ô input của Form và sẽ được thực hiện khi submit Form qa thẻ <button type="submit"/> nếu muốn dùng Button của Antd -> thì có thể set onClick(form.submit())  sử dụng thông qua đối tượng form khai báo ở trên hoa hoặc dùng attr htmlType="submit" cho thẻ Button đó 
+
+và all thuộc tính trong 1 <Form.Item/> được pân biệt = name -> lấy giá trị qa values ko dùg Id vì nó là duy nhất trên 1 page -> nếu có nhiềm form cũg kiểu đặt giống id thì ko đc mà đặt giống name nhưng khác form thì vẫn được vì name đó được quản lý qa form khác (nhiều form cần được khai báo const [form] = Form.useForm() để pân biệt)
+
+
+Mục tiêu :
+lấy được data khi submit
+Validate dữ liệu
+Hạn chế render (không sử dụng state)
+
+
+##IX - Hoàn thiện tính năng Register##
+
+khi bấm submit form của antd -> mặc định nó sẽ chạy vào hàm khái báo cho onFinish -> nhưng để validate trước khi nó chạy vào function này antd có hỗ trợ cho chúng ta mỗi Form.Item nó sẽ có 1 thuộc tính Rules giúp khai báo thông tin validate dữ liệu cho ô đó ở đây 
+
+Validate dữ liệu: ở cả frontend và backend 
+ {
+        required: true,
+        pattern: new RegExp(/\d+/g),
+        message: "Wrong format!"
+ }
+
+Gọi API backend 
+
+Giới thiệu API getFormValues/setFormValue: đây là 2 methods của form antd có thể lấy trực tiếp all giá trị thuộc trong form đang có hoặc set giá trị cho nó -> mìh có thể điều chỉnh lại form update/create user -> uncontrolled component thông qa 2 cái này -> dùng form + useEffect để fill giá trị lên khi update tức là ta chỉ dùng state của react để lấy giá trị user đó fill lên hạn chế bớt sự tác động của state 
+** ta có thể set/get cho 1 Form.Item thông qua tên của mỗi item 
+
+-> dùng thư viện antd này thì nó đã hỗ trợ rất nhiều ko cần dùng tới react 
+
+##X - Chia Layout Responsive (Extra)##
+Tài liệu:
+https://ant.design/components/grid
+
+Khác với Bootstrap (12 columns), Antd dùng 24 columns.
+(Bạn tự trang bị kiến thức về Bootstrap, như vậy sẽ thấy antd “giống hệt” nó )
+
+https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints
+Breakpoint:	class infix	Dimensions
+X-Small 	none 		< 576px
+Small 		sm 		>=576px
+...
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+====Chapter 9:  Module Auth====
+Chức năng đăng ký/đăng nhập sử dụng access token
+
+##I - Thiết kế giao diện Login + điều chỉnh giao diện Register + HomePage##
+divider ~ <hr/> https://ant.design/components/divider
+
+##II -  Cơ chế Stateless sử dụng Token##
+Có 2 cơ chế chính để xây dựng website, là stateful và stateless
+Stateful: chứa full trạng thái (state), sử dụng session
+Stateless: không chứ trạng thái (state), sử dụng token
+
+1.Mô hình truy cập 
+request từ client -> gửi lên server. Server gửi phản hồi (response) cho client
+
+Nếu như client (giao diện HTML) và server (logic xử lý) để trong cùng 1 source code
+=> đây là cơ chế stateful, vì server kiểm soát từ A tới Z
+
+Ngược lại, nếu bạn tách riêng code frontend và code backend, đây là mô hình stateless
+Ví dụ: bạn code frontend = react và backend = java (2 source code khác nhau)
+
+2.Làm sao để xác thực người dùng đã đăng nhập
+Với stateful, bạn sử dụng session 
+Với stateless (tách riêng frontend và backend):
+
+Hãy tưởng tượng, bạn đi du lịch tại nước ngoài (ví dụ từ Việt Nam sang Lào)
+
+Việt Nam (frontend), Lào (backend), và bạn muốn mua gỗ của Lào (API backend)
+
+Bước 1: bạn cần xin visa, vì visa sẽ định danh bạn là ai (passport). Visa này cần do Lào cấp (backend)
+=> đây là quá trình login, bạn login thành công, backend trả về access_token (giúp định danh bạn là ai)
+
+Bước 2: Bạn muốn buôn gỗ từ Lào về Việt Nam (frontend muốn gọi API của backend)
+
+Bạn sẽ cần chứng minh bạn “có quyền hợp pháp” (show passport ra)
+
+Như vậy, tại mỗi lời gọi API, bạn cần kèm theo access_token. Backend sẽ check cái token này, nếu hợp lệ, cho bạn truy cập API, ngược lại, từ chối truy cập
+
+
+##III - Access Token sử dụng với Stateless##
+
+Stateless, hiểu đơn giản là bạn tách riêng frontend và backend
+
+Quy trình:
+Frontend cần login để lấy token (access_token)
+
+Frontend muốn truy cập endpoint (api của backend), sẽ cần cung cấp token (access_token). Nếu token hợp lệ, backend cho phép truy cập nguồn tài nguyên, ngược lại thì không.
+
+Tại sao cần token ?
+Nếu không có cơ chế “xác thực/định danh ai là người đang đăng nhập”, thì người dùng - ai ai cũng có “vai trò giống nhau” (quyền hạn giống hệt nhau)
+
+Sau này bạn muốn: admin có quyền CRUD products, còn người dùng thông thường chỉ được phép xem data chẳng hạn.
+
+1.JWT - JSON Web Token
+https://jwt.io/
+
+Là một dạng “mã hóa” dữ liệu, giúp bạn lưu trữ thông tin người dùng đăng nhập.
+Về cơ chế tạo ra token cho frontend sử dụng, được học tại các khóa backend, tham khảo tại đây
+
+2. Các lỗi thường gặp
+
+Để cho tiện lợi, chúng ta thường gán “token” vào header của request (như vậy sẽ không cần sử url/body của api)
+Lỗi 1: không truyền Access Token (đối với các API check quyền hạn/token) ở header
+Lỗi 2: xem lại lỗi 1 :v
+
+##IV -  Nơi nào dùng để lưu trữ Token tại Frontend (Extra)##
+
+Tài liệu: https://datatracker.ietf.org/doc/html/rfc6749
+
+Thực tế, cách chúng ta đang làm, là tuân theo chuẩn OAuth2.
+
+Với Access Token, được lưu trữ tại LocalStorage
+
+Bonus: Phân biệt LocalStorage, SessionStorage, Cookies
+
+Local Storage:
+Data lưu mãi mãi (chỉ mất nếu bạn xóa nó đi)
+Code javascript có thể truy cập được
+
+Session Storage:
+Data sẽ bị mất (nếu bạn đóng tab/browser)
+Code javascript có thể truy cập được
+
+Cookie:
+Data sẽ “tự động mất” khi hết hạn
+Bạn có thể chặn/cho phép code javascript truy cập giá trị
+
+##V -  Logic Xử Lý Sau Khi Login##
+
+Bạn đã đăng nhập thành công, backend trả ra access_token và thông tin user đăng nhập.
+
+Với thông tin user đăng nhập:
+Bạn cần lưu thông tin lại, để sử dụng ở các component khác nhau, ví dụ Header cần hiển thị thông tin user đăng nhập
+
+Mỗi lần F5 (refresh website), thông tin này sẽ bị mất. Cần có cơ chế để lấy lại thông tin người dùng.
+Giải pháp: gọi API backend (truyền access token)
+
+Với access_token:
+Bạn lưu vào local storage
+Mỗi lần f5 (refresh website), bạn không bị mất thông tin token này
+Cấu hình để mỗi lần gọi API, sẽ tự động truyền thêm token ở header
+
+1.Giới thiệu về React Context
+https://react.dev/reference/react/createContext
+giải quyết vấn đề lifting up state hay chia sẽ data giữa các component cùng cấp hoặc quan hệ xa với nhau 
+
+Bài toán: sharing data giữa các component ?
+
+##VI - Sử Dụng React Context API##
+
+Tài liệu: https://react.dev/reference/react/createContext
+
+Mục tiêu:
+Lưu thông tin user vào React Context
+Hiển thị thông tin user đăng nhập lên header
+
+Bước 1: tạo context
+với context có thể lưu nhiều kiểu dữ liệu nhưng nên lưu: biến thông thường hoặc object
+
+Bước 2: wrap component
+sau khi tạo cần thông qua 1 provider: provider này sẽ bọc all component muốn sử dụng context này sau đó truyền giá trị xún những component này
+
+Bước 3: sử dụng context
+gọi nó ra = useContext(tên biến / object) trong context sử dụng tương tự state khi biến/object này thay đổi thì nó vẫn sẽ re-render component && khi refresh lại trag code vẫn sẽ được chạy từ trên xún -> context sẽ bị rỗng 
+
+##VII - React props.Children##
+Tài liệu:
+https://legacy.reactjs.org/docs/jsx-in-depth.html#children-in-jsx
+Giả sử ta có component: 
+const ParentComponent = (props) => {
+  console.log(">>>>> log parent", props)
+  return (
+    <div>Parent Component</div>
+  )
+}
+
+Khi sử dụng component:
+<ParentComponent>
+        Nguyen Van Thanh Trong
+        <ChildComponent></ChildComponent>
+</ParentComponent>
+
+-> thì props của component này sẽ có thêm 1 thuộc tính 'child' chứa 2 giá trị: 
+	Nguyen Van Thanh Trong
+	<ChildComponent/>
+-> có thể re-render động các child của 1 component thông qua props in trực tiếp nó trong component
+
+https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children
+https://stackoverflow.com/questions/49706823/what-is-this-props-children-and-when-you-should-use-it
+
+conditional check with array:
+https://stackoverflow.com/questions/66892066/conditionally-add-object-to-an-array-while-being-declared 
+đây là cách nó chỉ dùng điều kiện: 
+	...(!user["id"] ? [{
+            label: (
+                <Link to={"/login"}>
+                    Login
+                </Link>
+            ),
+            key: 'login',
+            icon: <LoginOutlined />,
+        }] : [{
+            label: (
+                `Welcome ${user["email"]}`
+            ),
+            key: 'welcome',
+            icon: <AliwangwangOutlined />,
+            children: [
+                {
+                    key: 'logout',
+                    label: <Link onClick={logout}>Logout</Link>,
+                },
+            ],
+        }]),
+
+
+##VIII - Xử Lý F5 (Refresh Page)##
+mỗi lần refresh web -> sẽ bị mất data vì hiện tại data đang được lưu trữ bởi React -> để khi refresh lại vẫn còn data thì mình cần gọi lại backend để lấy data
+
+//nhấn enter submit form login
+https://stackoverflow.com/a/59148029
+
+
+//gán token vào header với interceptor
+// Add a request interceptor
+instance.interceptors.request.use(function (config) {
+    if (typeof window !== "undefined" && window && window.localStorage && window.localStorage.getItem('access_token')) {
+        config.headers.Authorization = 'Bearer ' + window.localStorage.getItem('access_token');
+    }
+    // Do something before request is sent
+    return config;
+}, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+});
+
+nên viết set Header jwt token trog .request... này vì all request gửi lên server trc khi đến server pải qa hàm này điều kiện if là để kiểm tra có môi trường window ko ? nếu chạy trên server sẽ ko có biến window này biến này chỉ có khi và chỉ khi chạy trên browser 
+
+sau đó viết API getAccount hiện tại = access_token lưu trong local_storage
+
+mình nên sử dụng API này ở component cha chính là App và những component con sẽ có thông tin của người dùng ~ component login/register thì ko pải là con nên nó sẽ k có thôg tin người dùg này
+
+Để gọi API nên đặt trong useEffect vì lúc này giao diện đã render ra rồi: tức là hàm useEffect sẽ được chạy khi đã render hết component chứa nó mới qay lại chạy nó 
+
+//gọi API fetch Account
+//todo
+
+Hiện tại còn lỗi: khi refresh lại trang nếu có độ trễ thì nó sẽ hiển thị chữ login trước sau đó khi gọi API xog mới hiển thị Welcome
+
+##IX -  Private Route với React##
+
+Fix lỗi ở VIII: 
+	sẽ ko cho hiển thị giao diện mà chỉ hiển thị spin Icon của React khi chưa load API (https://ant.design/components/spin)
+	Hiện tại bên App ko có cái gì để giao diện này re-render -> sẽ sử dụng context vì đây là data dùng xuyên suốt ứng dụng
+
+Thêm: 
+	chỉ hiển thị trang books khi đã login
+Tài liệu: https://www.robinwieruch.de/react-router-private-routes/
+https://stackoverflow.com/a/66289280
+
+
+##X - Tổng Kết về mô hình Stateless với Access Token (JWT)##
+
+1.Luồng login và sử dụng Token
+Cơ chế xác thực người dùng được làm tại backend. Frontend sau khi login thành công, sẽ được cấp token để truy cập API (access_token)
+
+Mỗi lần truy cập API, frontend cần truyền access_token (vào header request) để xác thực. Token thường được viết dưới dạng JWT (json web token)
+
+Mỗi lần f5, thông tin lưu trữ tại frontend sẽ bị mất => cần gọi API để lấy thông tin của user đăng nhập
+	
+2.Chia sẻ data giữa các component
+
+Sử dụng React Context API để chia sẻ data giữa các component (tránh tình trạng cần truyền props từ cha sang con/hoặc giữa các component không có mối quan hệ với nhau)
+
+Có thể sử dụng các thư viện để quản lý state hiệu quả hơn.
+
+
+====Chapter 10: Module Book (Luyện Tập)====
+Luyện tập CRUD và upload file với model Book
+
+##I -  Bài Tập Hiển Thị Book##
+Yêu cầu: Hiển thị data Book với antd Table
+
+//giải thích các field & ý nghĩa của Book
+ "_id": id của book
+ "thumbnail": ảnh thumbnail
+ "slider": [ ] : ảnh slider (bỏ qua)
+"mainText": tiêu đề
+"author": tác giả
+"price": giá tiền
+"sold": số lượng đã bán
+"quantity": số lượng
+"category": thể loại
+
+//Lưu ý: fetch data tại table
+//format giá tiền
+
+Bước 1: Tạo Fake data (hardcode)
+https://ant.design/components/table
+
+Với table của Antd, gồm 2 thành phần: dataSource và columns
+columns là nơi khai báo các cột của table, và cách mapping data
+dataSource là data của table (array chứa object)
+
+Bước 2: Gọi API để lấy data
+//bạn có thể hardcode url api để có dữ liệu
+
+Sử dụng useState để lưu trữ data của table
+Sử dụng useEffect để gọi API
+
+Bước 3: Xử lý onChange table (pagination)
+Sử dụng useState  để lưu trữ current/pageSize/total
+
+Sử dụng useEffect với dependency [  ]
+
+##II - Bài Tập Xem Chi Tiết Book##
+
+Mục tiêu: hiển thị chi tiết book (có hình ảnh) khi xem chi tiết
+
+Bước 1: Tạo Drawer
+https://ant.design/components/drawer
+
+Bước 2: Quản lý state
+
+State open/close được khai báo tại Table
+
+State data detail được khai báo tại Table
+
+Bước 3: Hiển thị data
+Nhận props từ component cha và hiển thị data
+
+Hiển thị book với image (lấy từ backend)
+http://localhost:8080/images/book/file-name
+
+##III -  Bài Tập Thêm Mới Book (Controlled Component)##
+
+Sử dụng controlled component với state của React
+
+Lưu ý: chưa check validate tại frontend => khi test cần điền đầy đủ thông tin
+
+Bước 1: Tạo form
+https://ant.design/components/modal
+
+https://ant.design/components/input-number
+//lưu ý về sự kiện onChange
+
+https://ant.design/components/select
+//lưu ý về sự kiện onChange
+
+options={[
+{ value: 'Arts', label: 'Arts' },
+{ value: 'Business', label: 'Business' },
+{ value: 'Comics', label: 'Comics' },
+
+{ value: 'Cooking', label: 'Cooking' },
+{ value: 'Entertainment', label: 'Entertainment' },
+{ value: 'History', label: 'History' },
+
+{ value: 'Music', label: 'Music' },
+{ value: 'Sports', label: 'Sports' },
+{ value: 'Teen', label: 'Teen' },
+{ value: 'Travel', label: 'Travel' },
+
+]}
+
+Bước 2: Truyền thông tin vào API
+
+Bắt buộc cần upload hình ảnh thumbnail trước khi gọi api
+
+Upload hình ảnh, sau đấy gọi api tạo mới sách
+const resUpload = await handleUploadFile(selectedFile, "book");
+
+POST http://localhost:8080/api/v1/book
+{
+    "thumbnail": "abc.png",
+    "mainText": "bla bla",
+    "author": "hoidanit",
+    "price": 150000,
+    "quantity": 100,
+    "category": "Arts"
+}
+
+
+Fix bug click vào upload image => đóng modal => click lại chính xác image đấy
+https://stackoverflow.com/a/40429197
+
+Bước 3: Reset data
+Sau khi gọi API thành công, cần fetch lại data của table, đồng thời reset state cũng như đóng modal
+
+
+##IV - Bài Tập Thêm Mới Book (Uncontrolled Component)##
+Sử dụng uncontrolled component với antd
+
+sử dụng form của Antd với các giá trị lấy trực tiếp từ form chứ ko dùng Model giá trị set/get thông qa useState chỉ có ảnh của book là vẫn dùg useState -> giảm việc re-render giao diện
+làm tương tự như register/login
+
+Yêu cầu: sử dụng form của antd để làm uncontrolled component
+
+Các input sau sẽ dùng form với antd bỏ hết những useState này -> submit bằng các giá trị lấy trực tiếp trên form
+    const [mainText, setMainText] = useState("");
+    const [author, setAuthor] = useState("");
+    const [price, setPrice] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [category, setCategory] = useState("");
+
+Bước 1: khai báo form
+https://ant.design/components/form
+const [form] = Form.useForm();
+
+Và, gán vào Component:
+<Form
+form={form}
+onFinish={handleSubmitBtn}
+>
+
+Bước 2: gán name cho input (tham khảo phần login) (validate nếu muốn)
+Cần bọc input vào form item
+
+Bạn xóa hết state của React gán cho input, thay thế bằng name
+<Form.Item
+ label="Email"
+ name="email"
+>
+  <Input />
+</Form.Item>
+
+Riêng phần upload hình ảnh vẫn dùng state
+//input file
+style={{ display: "none" }}
+
+
+Bước 3: submit form
+onOk={() => form.submit()}
+
+const handleSubmitBtn = async (values) => { }
+Và được lấy ra dựa vào form của antd, ví dụ:
+ const { mainText, author, price, quantity, category} = values;
+
+
+Upload hình ảnh, sau đấy gọi api tạo mới sách
+
+
+Bước 4: reset data trên form
+ form.resetFields();
+
+
+##V -  Bài Tập Cập Nhật Book (Controlled Component)##
+
+Sử dụng Controlled component với state của React
+
+Bạn tạo mới data để test (không nên sử dụng data được tạo sẵn)
+
+1.Sự khác biệt giữa Update và Create
+
+Khi update, bạn cần truyền thêm _id
+
+Hàm useEffect sẽ được dùng để lắng nghe sự thay đổi và gán ra trị đầu vào cho modal
+
+2. Các bước thực hiện
+
+Bước 1: khai báo state giống như khi tạo mới
+Khai báo thêm const [id, setId] = useState("");
+
+Bước 2: gán giá trị cho modal
+
+Sử dụng useEffect
+  useEffect(() => {
+        if (dataUpdate && dataUpdate._id) {
+         //your code
+         }
+    }, [dataUpdate])
+
+//hiển thị hình ảnh preview lấy trực tiếp từ backend
+setPreview(`${import.meta.env.VITE_BACKEND_URL}/images/book/${dataUpdate.thumbnail}`)
+
+
+Bước 3: logic khi update
+//không có ảnh preview + không có file => return
+
+//có ảnh preview và không có file => không upload file
+=> giá trị của thumbnail lấy từ state của dataUpdate
+
+//có ảnh preview và có file => upload file
+=> giá trị của thumbnail lấy từ kết quả của upload file
+
+API update: 
+PUT  http://localhost:8080/api/v1/book
+{
+    "_id": "66693c9066d5d0fb5fca16c0",
+    "thumbnail": "abc.png",
+    "mainText": "bla bla",
+    "author": "hoidanit",
+    "price": 150000,
+    "quantity": 100,
+    "category": "Arts"
+}
+
+##VI - Bài Tập Cập Nhật Book (Uncontrolled Component)##
+
+Sử dụng uncontrolled component với form của Antd
+
+Làm tương tự như việc bạn sử dụng Create với uncontrolled component
+
+Bước 1: khai báo form
+https://ant.design/components/form
+const [form] = Form.useForm();
+
+Và, gán vào Component:
+<Form
+form={form}
+onFinish={handleSubmitBtn}
+>
+
+Bước 2: gán giá trị cho modal tại useEffect
+https://ant.design/components/form#components-form-demo-control-hooks
+
+form.setFieldsValue({ 
+//your code
+})
+
+Bước 3: update form 
+Cần bọc input vào form item
+
+Bạn xóa hết state của React gán cho input, thay thế bằng name
+<Form.Item
+ label="Email"
+ name="email"
+>
+  <Input />
+</Form.Item>
+
+Riêng phần upload hình ảnh vẫn dùng state
+//input file
+style={{ display: "none" }}
+Bước 4: submit form
+onOk={() => form.submit()}
+
+const handleSubmitBtn = async (values) => { }
+Và được lấy ra dựa vào form của antd, ví dụ:
+ const {id,  mainText, author, price, quantity, category} = values;
+
+//todo
+
+Bước 5: reset data trên form
+ form.resetFields();
+
+
+##VII -  Bài Tập Xóa Book##
+
+//nên tạo mới data, rồi xóa
+
+//nếu muốn có lại data fake, xóa hết data, chạy lại backend, backend sẽ tự động tạo data fake (khi count = 0)
+
+//Sử dụng component Popconfirm:
+https://ant.design/components/popconfirm
+
+
+DELETE  http://localhost:8080/api/v1/book/ID-BOOK
+
+
+====Chapter 11: Tổng kết====
+Tổng kết các kiến thức đã học
+
+##I - Thêm Loading Bar (Extra)##
+Tài liệu:
+https://www.npmjs.com/package/nprogress
+https://github.com/rstacruz/nprogress
+
+Bước 1: cài đặt
+npm install --save-exact nprogress@0.2.0
+
+Bước 2: cấu hình axios
+import NProgress from 'nprogress';
+
+NProgress.configure({
+    showSpinner: false,
+    trickleSpeed: 100,
+});
+
+// Add a request interceptor
+instance.interceptors.request.use(function (config) {
+    NProgress.start();
+}, function (error) {
+    NProgress.done();
+});
+
+// Add a response interceptor
+instance.interceptors.response.use(function (response) {
+    NProgress.done();
+}, function (error) {
+    NProgress.done();
+ });
+
+import file css vào file main.jsx
+
+##II - Fix Các Bug Còn Tồn Đọng##
+
+//bug 1:
+F5 lại trang, fix active menu header
+https://reactrouter.com/en/main/hooks/use-location
+dùng 1  hook của react router useLocation() -> lấy ra url/path đag truy cập 
+
+//bug 2:
+Thêm loading cho table hoặc button (sử dụng phần delay api) tương tự bug 3 Antd có hỗ trợ 
+
+//bug 3:
+Lưu ý về mỗi lần fetch api (khi nhấn nút button - nếu ngon, về mặt UX - cần thêm button loading)
+trong modal của Antd có hỗ trợ okButtonProps={{ loading: true/false }} -> hiển thị giống như khi bấm nút ở /login tăng UX
+
+//bug 4:
+Fix lỗi eslint
+https://github.com/facebook/react/issues/14920
+https://stackoverflow.com/a/77324978
+Báo warning tại đây: user.jsx đây là 1 lỗi performance
+useEffect(() => {
+        loadUser()
+    }, [current, pageSize])
+loadUser()
+
+nếu ta để loadUser() ở trong useEffect nhưng khai báo hàm ở ngoài -> mỗi lần re-render nó sẽ tạo mới 1 loadUser() chứ ko pải sử dụng lại loadUser() đã định nghĩa trước đó 
+
+ví dụ: khi khai báo 1 biến trong react thì bộ nhớ máy tíh chia làm 2: 
+	1 là lưu địa chỉ - 2 là lưu value của 1 biến đó khi re-render nó sẽ tạo lại luôn cả 2 chứ ko updata value -> giảm hiệu năng
+
+để fix: 
+- ghi nội dung của hàm loadUser() vào bên trong useEffect luôn. nhược điểm ko tái sử dụng được
+- dùng hook useCallBack để bọc lấy cái loadUser
+
+
+##III - Hook Là Gì ?##
+
+React viết code sẽ chạy từ trên xún mọi thứ đều là function đối với Hook nó sẽ 'Móc' vào những function này -> sẽ có 1 côg dụg gì đó và làm cho component Re-render
+
+Hook thường bắt đầu = "use" -> có thể customize 1 cái hook riêng 
+
+React có bao nhiêu hook ?
+Bắt đầu bằng keyword use, ví dụ useState, useEffect
+
+Rule khi sử dụng hook :
+https://react.dev/warnings/invalid-hook-call-warning
+Các lưu ý khi sử dụng hook (như khai báo ở đầu function):
+- chỉ được gọi hook ở ngay đầu function
+- làm cho component re-render khiến component có side effect (tác dụng pụ)
+
+Không khai báo hook trong function thông thường
+
+Chỉ cần useState và useEffect là đủ (thiếu gì, google cái đó)
+
+##IV - Phân Tích Câu Chuyện Deploy ?##
+
+Quy trình phát triển một sản phẩm phần mềm (website), bao gồm 3 bước chính:
+Bước 1: development (phát triển), hay còn hiểu là bước coding
+Bạn chạy tất cả tại máy tính cá nhân bạn (localhost)
+
+=> đây còn gọi là môi trường dev (development), giải thích cho lý do tại sao bạn hay gõ là : npm run dev
+
+Bước 2: testing (kiểm thử). Tester sẽ tiến hành kiểm thử phần mềm của bạn (nhằm phát hiện bugs và đảo bảo chất lượng của phần mềm)
+
+=> chúng ta không làm cái này nên tạm thời bỏ qua :v
+
+Bước 3: production (sản phẩm thực tế) sẽ được chạy tại máy chủ + với tên miền. Quá trình để có được sản phẩm chạy thực tế, gọi là deployment (triển khai)
+
+Ví dụ: sau khi code được website (bước 1), mình đã deploy lên server tại hoidanit.vn
+
+Để chạy production (prod), chúng ta cần build ứng dụng, rồi chạy (như vậy nó sẽ tối ưu hóa hiệu năng), giải thích cho lý do tại sao chúng ta dùng:
+npm run build
+npm start
+
+1. Ghi CV có cần sản phẩm deploy ?
+Không bắt buộc bạn ghi CV là cần phải có link sản phẩm deploy. Nếu có thì càng tốt, còn không có nó cũng chẳng sao, ở đây là 50/50.
+
+Câu chuyện deploy nó chỉ xảy ra với beginner (xin thực tập/fresher), vì khi đã đi làm, chắc chắn 100% sẽ không ghi link sản phẩm (vì đây là sản phẩm của công ty)
+
+Trường hợp bạn không có link sản phẩm demo, bạn cần có link github sản phẩm của bạn (hoặc bạn có thể quay video demo nếu muốn)
+
+2. Quá trình Deploy với 1 Website
+Gồm 3 bước chính (là 3 thành phần của website)
+Deploy frontend
+
+Deploy backend
+
+Deploy database
+
+3. Chuyện Dùng Miễn Phí và Trả phí
+
+Miễn phí thì không có chuyện “ngon, bổ, rẻ”, vì deploy, chính là việc bạn “chạy thực tế”. 
+
+Ngày nay, ngày càng ít các nơi “hosting” (nơi chứa mã nguồn website) miễn phí.
+
+Nếu có FREE, sẽ bị các nhược điểm sau:
+Giới hạn nguồn tài nguyên (ví dụ RAM 512 MB, lưu trữ 1GB, không lưu trữ file…)
+Data (giữ liệu) sẽ bị xóa sau 1 khoảng thời gian nhất định (3 tháng, 6 tháng…)
+Bị ngủ đông (hibernate) nếu như không có người dùng truy cập (tắt đi cho đỡ tốn điện)
+Khi cần truy cập, sẽ cần cho nó wake-up (chờ từ 30s tới 1 phút)
+
+Dùng “Trả phí” có các lợi thế sau:
+Không bị các nhược điểm của cách làm FREE
+
+Nhược điểm của cách làm trả phí:
+Bạn cần trả phí nhiều (nếu muốn không làm gì). Pay as you go
+Chi phí mua tên miền, mua vps, mua database, backup dữ liệu…
+
+Bạn trả phí ít, bắt buộc bạn cần có kiến thức về deploy (ví dụ docker, mua tên miền, cấu hình vps…
+
+
+##V - Deploy Backend Với Render##
+
+Lưu ý: Copy mã nguồn sang 1 folder khác, tránh tình trạng ảnh hưởng tới dự án đang chạy tại máy tính của bạn
+
+Cần chuẩn bị:
+Tài khoản Github
+
+Đẩy mã nguồn lên Github
+
+Bước 1: đăng nhập vào render sử dụng Github/Gitlab/Google
+
+Trang chủ:  https://render.com/
+
+Trang để đăng nhập: https://dashboard.render.com/
+
+Bước 2: Triển khai với Render
+https://react-ultimate-backend-cn5i.onrender.com/
+
+
+##VI - Deploy Frontend Với Vercel##
+Lưu ý: copy mã nguồn sang 1 folder khác, tránh tình trạng ảnh hưởng tới dự án đang chạy tại máy tính của bạn
+
+//update source code frontend
+https://vercel.com/login
+
+//vercel.json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
+những cấu hình này để fix bugs của Vercel mỗi lần refresh lại website ko bị lỗi 404
+
+
+Cần chuẩn bị:
+Tài khoản github
+Đẩy mã nguồn lên github
+
+Bước 1: đăng nhập vào Vercel
+Trang chủ: https://vercel.com/
+
+Trang login: https://vercel.com/login
+
+
+Bước 2: Triển khai với Vercel
+
+##VII - Nhận xét về dự án thực hành##
+
+Ưu điểm:
+Nắm vững các kiến thức cốt lõi của React : state & props
+Tối ưu hóa Render với uncontrolled component
+Chia sẻ data giữa các component với React Context API
+Tăng tính trải nghiệm UI/UX với thư viện antd
+Thực hành dự án React với API của backend
+
+Nhược điểm:
+Axios retry : api failed thì cần có cơ chế tự động gọi lại
+Refresh token
+Table với filter, sort
+Thực hiện nhiều CRUD hơn
+
+
+====Chapter 12: React 19 (Bonus)====
+Tìm hiểu tổng quan về React version 19
+
+
+##I -  React 19 ra đời khi nào ?##
+
+1.Lịch sử ra đời
+
+React 19 RC (release candidate) ra đời vào 25/04/2024,
+
+Đây là version beta, dùng để test và lắng nghe feedback của cộng đồng (community)
+
+https://github.com/facebook/react/blob/main/CHANGELOG.md
+
+v16.8.0 - 06/02/2019 (React sử dụng Hook - cách code của khóa học này)
+
+v18.0.0 - 29/03/2022
+
+v18.3.1 - 26/04/2024 (chuẩn bị cho ra đời chính thức của React 19)
+
+2. Các điểm mới của React 19
+https://react.dev/blog/2024/04/25/react-19
+
+Các điểm chính:
+
+Điểm 1: cải thiện form (client). Hãy tưởng tượng, bạn code php :v
+
+Điểm 2: server component (đã bao gồm form tại server)
+
+Điểm 3: cải thiện React : compiler, metadata, ref…
+
+https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024
+
+https://www.developerway.com/posts/react-compiler-soon
+
+##II - Upgrade Project to React 19 (RC)##
+
+Chỉ thực hiện cách làm này (nếu bạn sử dụng version cũ hơn và React chưa ra version 19 chính thức)
+
+Đi làm thực tế, ít khi bạn upgrade (khi dự án đã golive)
+
+//checkout sang nhánh code khác để test (hoặc sử dụng git để rollback code)
+
+Tham khảo cách làm tại đây:
+https://react.dev/blog/2024/04/25/react-19-upgrade-guide
+
+Lịch sử public version của React:
+https://www.npmjs.com/package/react?activeTab=versions
+
+Bước 1: cài đặt
+npm install --save-exact react@19.0.0-rc-3563387fe3-20240621 react-dom@19.0.0-rc-3563387fe3-20240621
+
+
+Bước 2: Test dự án
+
+##III - Câu Chuyện Về Next.JS##
+
+Tương lai của React là Next.js
+
+Trang chủ của React, gợi ý trực tiếp sử dụng Next.js (điều này chỉ xảy ra từ tháng 4/2023)
+https://react.dev/learn/start-a-new-react-project
+
+Tuy nhiên, với beginner, mình không dùng trực tiếp Next.js (vì độ khó nó cao), tương tự như cách bạn học Angular, bạn cần:
+Bắt buộc biết Typescript
+Bắt buộc có tư duy về DI (dependency injection và IoC - inversion of control)
+
+React khi dùng với Next.js, nó chính thức là framework (tương tự Angular và Vue)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
